@@ -45,8 +45,8 @@ class CustomModel(torch.nn.Module):
             linear_size = input_size if i == layers - 1 else projection
             self.layers.append(
                 torch.nn.Linear(
-                    #in_features=rnn_size * 2, out_features=linear_size-2 if i==layers-1 else linear_size,
-                    in_features=rnn_size * 2, out_features=linear_size,
+                    in_features=rnn_size * 2, out_features=linear_size-2 if i==layers-1 else linear_size,
+                    #in_features=rnn_size * 2, out_features=linear_size,
                 )
             )
 
