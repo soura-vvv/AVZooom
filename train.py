@@ -62,7 +62,7 @@ class SEBrain(sb.Brain):
         
         #make mask 259
         temp_zeros=torch.zeros(mask.size(dim=0),mask.size(dim=1),2).to(device)
-        mask=torch.cat((feats,temp_zeros),2).to(device)
+        mask=torch.cat((mask,temp_zeros),2).to(device)
         
         #noisy_feats_chopped=torch.split(noisy_feats,257,dim=2)
         print("New Dimension:")
