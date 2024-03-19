@@ -12,35 +12,35 @@ class SEBrain(sb.Brain):
     ):
 
     # If dataset isn't a Dataloader, we create it.
-    if not isinstance(dataset, DataLoader):
-        loader_kwargs["ckpt_prefix"] = None
-        dataset = self.make_dataloader(
-            dataset, Stage.TEST, **loader_kwargs
-        )
+        if not isinstance(dataset, DataLoader):
+            loader_kwargs["ckpt_prefix"] = None
+            dataset = self.make_dataloader(
+                dataset, Stage.TEST, **loader_kwargs
+            )
 
 
-    self.on_evaluate_start(max_key=max_key) # We call the on_evaluate_start that will load the best model
-    self.modules.eval() # We set the model to eval mode (remove dropout etc)
+        self.on_evaluate_start(max_key=max_key) # We call the on_evaluate_start that will load the best model
+        self.modules.eval() # We set the model to eval mode (remove dropout etc)
 
     # Now we iterate over the dataset and we simply compute_forward and decode
-    with torch.no_grad():
+        with torch.no_grad():
 
-        transcripts = []
-        for batch in tqdm(dataset, dynamic_ncols=True):
+            transcripts = []
+            for batch in tqdm(dataset, dynamic_ncols=True):
 
-            # Make sure that your compute_forward returns the predictions !!!
-            # In the case of the template, when stage = TEST, a beam search is applied
-            # in compute_forward().
-            out = self.compute_forward(batch, stage=sb.Stage.TEST)
-            p_seq, wav_lens, predicted_tokens = out
+                # Make sure that your compute_forward returns the predictions !!!
+                # In the case of the template, when stage = TEST, a beam search is applied
+                # in compute_forward().
+                out = self.compute_forward(batch, stage=sb.Stage.TEST)
+                p_seq, wav_lens, predicted_tokens = out
 
-            # We go from tokens to words.
-            predicted_words = self.tokenizer(
-                predicted_tokens, task="decode_from_list"
-            )
-            transcripts.append(predicted_words)
+                # We go from tokens to words.
+                predicted_words = self.tokenizer(
+                    predicted_tokens, task="decode_from_list"
+                )
+                transcripts.append(predicted_words)
 
-    return transcripts
+        return transcripts
 
 
 
