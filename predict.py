@@ -61,7 +61,14 @@ if __name__ == "__main__":
         overrides=overrides,
     )
     
-    
+    se_brain = SEBrain(
+        modules=hparams["modules"],
+        opt_class=hparams["opt_class"],
+        hparams=hparams,
+        run_opts=run_opts,
+        checkpointer=hparams["checkpointer"],
+    )
+
     predictions = se_brain.enhance_dataset(
         dataset=datasets["valid"], # Must be obtained from the dataio_function
         max_key="stoi", # We Load best checkpoint (highest STOI) for evaluation
