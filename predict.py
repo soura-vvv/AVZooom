@@ -4,7 +4,7 @@ from hyperpyyaml import load_hyperpyyaml
 
 class SEBrain(sb.Brain):
 
-def enhance_dataset(
+    def enhance_dataset(
         self,
         dataset, # Must be obtained from the dataio_function
         max_key, # We load the model with the max STOI
