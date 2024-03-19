@@ -13,11 +13,11 @@ class SEBrain(sb.Brain):
     ):
 
     # If dataset isn't a Dataloader, we create it.
-        if not isinstance(dataset, DataLoader):
-            loader_kwargs["ckpt_prefix"] = None
-            dataset = self.make_dataloader(
-                dataset, Stage.TEST, **loader_kwargs
-            )
+        #if not isinstance(dataset, DataLoader):
+        #    loader_kwargs["ckpt_prefix"] = None
+        #    dataset = self.make_dataloader(
+        #        dataset, Stage.TEST, **loader_kwargs
+        #    )
 
 
         self.on_evaluate_start(max_key=max_key) # We call the on_evaluate_start that will load the best model
