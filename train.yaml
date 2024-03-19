@@ -115,7 +115,7 @@ wav_augment: !new:speechbrain.augment.augmenter.Augmenter
 # class that's listed here, or replace this `!new` call with a line
 # pointing to a different file you've defined.
 model: !new:custom_model.CustomModel
-    input_size: !ref <n_fft> // 2 + 1
+    input_size: !ref <n_fft> // 2 + 3
 
 # The first object passed to the Brain class is this "Epoch Counter"
 # which is saved by the Checkpointer so that training can be resumed
