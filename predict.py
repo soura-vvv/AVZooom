@@ -2,6 +2,7 @@ import sys
 import torch
 import speechbrain as sb
 from hyperpyyaml import load_hyperpyyaml
+import tqdm
 
 
 class SEBrain(sb.Brain):
