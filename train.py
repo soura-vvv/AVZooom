@@ -65,10 +65,10 @@ class SEBrain(sb.Brain):
         mask=torch.cat((mask,temp_zeros),2).to(device)
         
         #noisy_feats_chopped=torch.split(noisy_feats,257,dim=2)
-        print("New Dimension:")
-        print(noisy_feats)
-        print("Mask Time:")
-        print(mask.size())
+        #print("New Dimension:")
+        #print(noisy_feats)
+        #print("Mask Time:")
+        #print(mask.size())
         
         predict_spec = torch.mul(mask, noisy_feats)
         
@@ -77,7 +77,7 @@ class SEBrain(sb.Brain):
         # also be used for a time-domain loss term.
         predict_spec_chopped=torch.split(predict_spec,257,dim=2)
         predict_wav = self.hparams.resynth(
-            torch.expm1(predict_spec), noisy_wavs
+            torch.expm1(predict_spec_chopped[0]), noisy_wavs
         )
         #predict_wav=0
 
