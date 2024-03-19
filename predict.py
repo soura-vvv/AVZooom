@@ -122,7 +122,7 @@ if __name__ == "__main__":
     predictions = se_brain.enhance_dataset(
         dataset=datasets["valid"], # Must be obtained from the dataio_function
         max_key="stoi", # We Load best checkpoint (highest STOI) for evaluation
-        loader_kwargs=hparams["transcribe_dataloader_opts"], # opts for the dataloading
+        loader_kwargs=hparams["dataloader_opts"], # opts for the dataloading
     )
     print("predictions")
     print(predictions)
