@@ -75,10 +75,11 @@ class SEBrain(sb.Brain):
         #predict_spec=torch.mul(mask,noisy_feats)
         # Also return predicted wav, for evaluation. Note that this could
         # also be used for a time-domain loss term.
-        #predict_wav = self.hparams.resynth(
-        #    torch.expm1(predict_spec), noisy_wavs
-        #)
-        predict_wav=0
+        predict_spec_chopped=torch.split(predict_spec,257,dim=2)
+        predict_wav = self.hparams.resynth(
+            torch.expm1(predict_spec[0]), noisy_wavs
+        )
+        #predict_wav=0
 
         # Return a dictionary so we don't have to remember the order
         return {"spec": predict_spec, "wav": predict_wav}
@@ -107,7 +108,7 @@ class SEBrain(sb.Brain):
         #print(feats.size())
         feats=torch.cat((feats,temp_zeros),2).to(device)
         #print("Post Feats Size:")
-        print(feats.size())
+        #print(feats.size())
         #Sourav Change End
         return feats
 
