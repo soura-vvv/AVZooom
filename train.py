@@ -69,10 +69,10 @@ class SEBrain(sb.Brain):
         #predict_spec=torch.mul(mask,noisy_feats)
         # Also return predicted wav, for evaluation. Note that this could
         # also be used for a time-domain loss term.
-        #predict_wav = self.hparams.resynth(
-        #    torch.expm1(predict_spec), noisy_wavs
-        #)
-        predict_wav=0
+        predict_wav = self.hparams.resynth(
+            torch.expm1(predict_spec), noisy_wavs
+        )
+        #predict_wav=0
 
         # Return a dictionary so we don't have to remember the order
         return {"spec": predict_spec, "wav": predict_wav}
