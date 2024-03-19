@@ -59,20 +59,26 @@ class SEBrain(sb.Brain):
         # Masking is done here with the "signal approximation (SA)" algorithm.
         # The masked input is compared directly with clean speech targets.
         mask = self.modules.model(noisy_feats)
-        noisy_feats_chopped=torch.split(noisy_feats,257,dim=2)
+        
+        #make mask 259
+        temp_zeros=torch.zeros(mask.size(dim=0),mask.size(dim=1),2).to(device)
+        mask=torch.cat((feats,temp_zeros),2).to(device)
+        
+        #noisy_feats_chopped=torch.split(noisy_feats,257,dim=2)
         print("New Dimension:")
-        print(noisy_feats_chopped[0].size())
+        print(noisy_feats)
         print("Mask Time:")
         print(mask.size())
-        predict_spec = torch.mul(mask, noisy_feats_chopped[0])
+        
+        predict_spec = torch.mul(mask, noisy_feats)
         
         #predict_spec=torch.mul(mask,noisy_feats)
         # Also return predicted wav, for evaluation. Note that this could
         # also be used for a time-domain loss term.
-        predict_wav = self.hparams.resynth(
-            torch.expm1(predict_spec), noisy_wavs
-        )
-        #predict_wav=0
+        #predict_wav = self.hparams.resynth(
+        #    torch.expm1(predict_spec), noisy_wavs
+        #)
+        predict_wav=0
 
         # Return a dictionary so we don't have to remember the order
         return {"spec": predict_spec, "wav": predict_wav}
