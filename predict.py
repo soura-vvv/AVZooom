@@ -68,7 +68,7 @@ if __name__ == "__main__":
         run_opts=run_opts,
         checkpointer=hparams["checkpointer"],
     )
-
+    datasets = dataio_prep(hparams)
     predictions = se_brain.enhance_dataset(
         dataset=datasets["valid"], # Must be obtained from the dataio_function
         max_key="stoi", # We Load best checkpoint (highest STOI) for evaluation
