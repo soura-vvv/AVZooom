@@ -114,8 +114,9 @@ class SEBrain(sb.Brain):
 
         # Log1p reduces the emphasis on small differences
         feats = torch.log1p(feats)
-        #feats=feats.movedim(1,-1)
+        
         feats=feats.unsqueeze(0)
+        feats=feats.movedim(1,-1)
         #Sourav Change
         print("FeAts Size")
         print(feats.size())
