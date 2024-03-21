@@ -239,7 +239,7 @@ class SEBrain(sb.Brain):
         #        test_set, Stage.TEST, **test_loader_kwargs
         #    )
         self.on_evaluate_start(max_key=max_key, min_key=min_key)
-        self.on_stage_start(Stage.TEST, epoch=None)
+        #self.on_stage_start(Stage.TEST, epoch=None)
         self.modules.eval()
         avg_test_loss = 0.0
         with torch.no_grad():
@@ -250,7 +250,7 @@ class SEBrain(sb.Brain):
                 colour=self.tqdm_barcolor["test"],
             ):
                 self.step += 1
-                loss,out = self.evaluate_batch(batch, stage=Stage.TEST)
+                loss,out = self.evaluate_batch(batch, "")
                 avg_test_loss = self.update_average(loss, avg_test_loss)
 
                 # Profile only if desired (steps allow the profiler to know when all is warmed up)
@@ -292,7 +292,39 @@ class SEBrain(sb.Brain):
         loss = self.compute_objectives(out, batch, stage=stage)
         return loss.detach().cpu(),out
     # Define the inference function
+    def infer2(self,test_set, max_key=None,min_key=None,progressbar=None,test_loader_kwargs={}):
+        if progressbar is None:
+            progressbar = not self.noprogressbar
+            
+        self.on_evaluate_start(max_key=max_key, min_key=min_key)
+        self.modules.eval()
+        with torch.no_grad():
+            for batch in tqdm(
+                test_set,
+                dynamic_ncols=True,
+                disable=not progressbar,
+                colour=self.tqdm_barcolor["test"],
+            ):
+                self.step += 1
+                loss,out = self.evaluate_batch(batch, stage="")
+                avg_test_loss = self.update_average(loss, avg_test_loss)
 
+                # Profile only if desired (steps allow the profiler to know when all is warmed up)
+                if self.profiler is not None:
+                    if self.profiler.record_steps:
+                        self.profiler.step()
+
+                # Debug mode only runs a few batches
+                if self.debug and self.step == self.debug_batches:
+                    break
+
+            #self.on_stage_end(Stage.TEST, avg_test_loss, None)
+        self.step = 0
+    
+    
+        return avg_test_loss,out
+    
+    
     def infer(self,test_set, max_key=None,min_key=None,progressbar=None,test_loader_kwargs={}):
         model.eval()  # Set the model to evaluation mode
         print(dir(self))
@@ -512,7 +544,12 @@ if __name__ == "__main__":
     #    print('\n')
     
     
-    infer_stats=se_brain.infer(hparams["model"],datasets["valid"])
-    print(infer_stats)
+    #infer_stats=se_brain.infer(hparams["model"],datasets["valid"])
+    #print(infer_stats)
     
     #speechbrain.inference.enhancement
+    test_stats,out = se_brain.infer2(
+        test_set=datasets["test"],
+        max_key="stoi",
+        test_loader_kwargs=hparams["dataloader_options"],
+    )
