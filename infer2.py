@@ -501,6 +501,8 @@ if __name__ == "__main__":
     )
     print("test_stats")
     print(test_stats)
+    print("out--->")
+    print(out)
     
     #methods = inspect.getmembers(se_brain, predicate=inspect.ismethod)
     #for name, method in methods:
