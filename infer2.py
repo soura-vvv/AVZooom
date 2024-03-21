@@ -243,7 +243,7 @@ def infer(model, dataloader):
     with torch.no_grad():
         for batch in dataloader:
             waveforms, filenames = batch
-            waveforms = waveforms.to(device)  # Move data to device if using GPU
+            #waveforms = waveforms.to(device)  # Move data to device if using GPU
             outputs = model(waveforms)
             _, predicted = torch.max(outputs, 1)
             predictions.extend(predicted.tolist())
