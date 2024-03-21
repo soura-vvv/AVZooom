@@ -201,7 +201,7 @@ class SEBrain(sb.Brain):
                 if self.debug and self.step == self.debug_batches:
                     break
                 
-                exit()
+                
 
             #self.on_stage_end(Stage.TEST, avg_test_loss, None)
         self.step = 0
