@@ -58,6 +58,8 @@ class SEBrain(sb.Brain):
 
         # Masking is done here with the "signal approximation (SA)" algorithm.
         # The masked input is compared directly with clean speech targets.
+        
+        #Actual Training
         mask = self.modules.model(noisy_feats)
         
         #make mask 259
@@ -348,3 +350,5 @@ if __name__ == "__main__":
     )
     print("test_stats")
     print(test_stats)
+    
+    #speechbrain.inference.enhancement
