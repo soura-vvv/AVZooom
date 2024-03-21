@@ -116,20 +116,13 @@ class SEBrain(sb.Brain):
         """
 
         # Log-spectral features
-        print("Wavs Size")
-        print(wavs.size())
         feats = self.hparams.compute_STFT(wavs)
         feats = sb.processing.features.spectral_magnitude(feats, power=0.5)
 
         # Log1p reduces the emphasis on small differences
         feats = torch.log1p(feats)
-        
-        feats=feats.unsqueeze(0)
-        feats=feats.movedim(1,-1)
+
         #Sourav Change
-        print("FeAts Size")
-        print(feats.size())
-        feats=feats.to(device)
         temp_zeros=torch.zeros(feats.size(dim=0),feats.size(dim=1),2).to(device)
         #print("Temp_Zeros Size:")
         #print(temp_zeros.size())
