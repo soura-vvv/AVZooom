@@ -26,6 +26,8 @@ from hyperpyyaml import load_hyperpyyaml
 from mini_librispeech_prepare import prepare_mini_librispeech
 import inspect
 from tqdm import tqdm
+import numpy as np
+import scipy.io.wavfile as wavf
 
 
 # Brain class for speech enhancement training
@@ -201,7 +203,7 @@ class SEBrain(sb.Brain):
                 # Debug mode only runs a few batches
                 if self.debug and self.step == self.debug_batches:
                     break
-                exit()
+                #exit()
                 
                 
 
@@ -263,6 +265,14 @@ def dataio_prep(hparams):
         ).filtered_sorted(sort_key="length")
     return datasets
 
+def write_out_audio(audio_wavs):
+    sample_rate=hparams["sample_rate"]
+    samples=np.array(audio_wavs)
+    
+    wavf.write("TestInference.wav",sample_rate,samples)
+    
+    
+        
 
 # Recipe begins!
 if __name__ == "__main__":
@@ -320,6 +330,7 @@ if __name__ == "__main__":
     )
     print("=============================================================================")
     #print(*out,sep="\n")
-    print(len(out))
+    #print(len(out))
+    write_out_audio(out[0])
     
     #/home/sxp3410/Masters/speechbrain/templates/enhancement/AVZooom
