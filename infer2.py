@@ -207,7 +207,7 @@ class SEBrain(sb.Brain):
                 #noisy_wavs, self.lens = self.hparams.wav_augment(
                 #    self.clean_wavs, self.lens
                 #)
-
+                noisy_wavs=self.clean_wavs
                 noisy_feats = self.compute_feats(noisy_wavs)
 
                 # Masking is done here with the "signal approximation (SA)" algorithm.
