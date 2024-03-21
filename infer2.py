@@ -283,7 +283,7 @@ class SEBrain(sb.Brain):
                 if self.debug and self.step == self.debug_batches:
                     break
 
-            self.on_stage_end(Stage.TEST, avg_test_loss, None)
+            self.on_stage_end(Stage.TEST, 0, None)
         self.step = 0
         return out
 
