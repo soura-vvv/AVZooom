@@ -56,14 +56,15 @@ class SEBrain(sb.Brain):
         print("Batchsdhosijd---------------------")
         print(batch)
         batch = batch.to(self.device)
-        self.clean_wavs, self.lens = batch.clean_sig
-
-        noisy_wavs, self.lens = self.hparams.wav_augment(
-            self.clean_wavs, self.lens
-        )
-
+        #self.clean_wavs, self.lens = batch.clean_sig
+        self.clean_wavs=batch["clean_sig"]
+        #noisy_wavs, self.lens = self.hparams.wav_augment(
+        #    self.clean_wavs, self.lens
+        #)
+        noisy_wavs=self.clean_wavs
         noisy_feats = self.compute_feats(noisy_wavs)
-
+        print("Noisy Feats Size")
+        print(noisy_feats.size())
         # Masking is done here with the "signal approximation (SA)" algorithm.
         # The masked input is compared directly with clean speech targets.
         
