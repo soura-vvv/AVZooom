@@ -230,14 +230,14 @@ class SEBrain(sb.Brain):
         if progressbar is None:
             progressbar = not self.noprogressbar
 
-        if not (
-            isinstance(test_set, DataLoader)
-            or isinstance(test_set, LoopedLoader)
-        ):
-            test_loader_kwargs["ckpt_prefix"] = None
-            test_set = self.make_dataloader(
-                test_set, Stage.TEST, **test_loader_kwargs
-            )
+        #if not (
+        #    isinstance(test_set, DataLoader)
+        #    or isinstance(test_set, LoopedLoader)
+        #):
+        #    test_loader_kwargs["ckpt_prefix"] = None
+        #    test_set = self.make_dataloader(
+        #        test_set, Stage.TEST, **test_loader_kwargs
+        #    )
         self.on_evaluate_start(max_key=max_key, min_key=min_key)
         self.on_stage_start(Stage.TEST, epoch=None)
         self.modules.eval()
