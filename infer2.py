@@ -362,8 +362,8 @@ if __name__ == "__main__":
     #    max_key="stoi",
     #    test_loader_kwargs=hparams["dataloader_options"],
     #)
-    print("test_stats")
-    print(test_stats)
+    #print("test_stats")
+    #print(test_stats)
     
     infer_stats=se_brain.infer(hparams["model"],datasets["valid"])
     print(infer_stats)
