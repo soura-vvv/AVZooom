@@ -292,7 +292,13 @@ class SEBrain(sb.Brain):
         loss = self.compute_objectives(out, batch, stage=stage)
         return loss.detach().cpu(),out
     # Define the inference function
-    def infer(self,model, dataloader):
+    #        self,
+        test_set,
+        max_key=None,
+        min_key=None,
+        progressbar=None,
+        test_loader_kwargs={},
+    def infer(self,test_set, max_key=None,min_key=None,progressbar=None,test_loader_kwargs={}):
         model.eval()  # Set the model to evaluation mode
         print(dir(self))
         predictions = []
