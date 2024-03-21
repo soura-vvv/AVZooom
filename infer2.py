@@ -128,6 +128,7 @@ class SEBrain(sb.Brain):
         #Sourav Change
         print("FeAts Size")
         print(feats.size())
+        feats=feats.to(device)
         temp_zeros=torch.zeros(feats.size(dim=0),feats.size(dim=1),2).to(device)
         #print("Temp_Zeros Size:")
         #print(temp_zeros.size())
