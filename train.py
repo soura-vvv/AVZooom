@@ -56,7 +56,7 @@ class SEBrain(sb.Brain):
         print(self.clean_wavs)
         print("Lens--")
         print(self.lens)
-        exit()
+        
         noisy_wavs, self.lens = self.hparams.wav_augment(
             self.clean_wavs, self.lens
         )
@@ -97,6 +97,7 @@ class SEBrain(sb.Brain):
         predict_wav = self.hparams.resynth(
             torch.expm1(predict_spec_chopped[0]), noisy_wavs
         )
+        exit()
         #predict_wav=0
 
         # Return a dictionary so we don't have to remember the order

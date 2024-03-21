@@ -64,10 +64,10 @@ class SEBrain(sb.Brain):
         print(self.clean_wavs)
         print("Lens--")
         print(self.lens)
-        exit()
+        
         #noisy_wavs, self.lens = self.hparams.wav_augment(
         #    self.clean_wavs, self.lens
-        #)
+        #)Use this for augmenting noise
         noisy_wavs=self.clean_wavs
 
         noisy_feats = self.compute_feats(noisy_wavs)
@@ -95,8 +95,7 @@ class SEBrain(sb.Brain):
         #predict_spec=torch.mul(mask,noisy_feats)
         # Also return predicted wav, for evaluation. Note that this could
         # also be used for a time-domain loss term.
-        noisy_wavs=torch.split(noisy_wavs,500,dim=0)
-        noisy_wavs=noisy_wavs[0].unsqueeze(0)
+        
         predict_spec_chopped=torch.split(predict_spec,257,dim=2)
         print("Predict_SpecSize")
         print(predict_spec.size())
@@ -107,7 +106,7 @@ class SEBrain(sb.Brain):
         predict_wav = self.hparams.resynth(
             torch.expm1(predict_spec_chopped[0]), noisy_wavs
         )
-        
+        exit()
         #predict_wav=0
 
         # Return a dictionary so we don't have to remember the order
