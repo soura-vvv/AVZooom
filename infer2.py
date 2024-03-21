@@ -201,6 +201,7 @@ class SEBrain(sb.Brain):
                 # Debug mode only runs a few batches
                 if self.debug and self.step == self.debug_batches:
                     break
+                exit()
                 
                 
 
