@@ -577,6 +577,6 @@ if __name__ == "__main__":
         test_loader_kwargs=hparams["dataloader_options"],
     )
     print("=============================================================================")
-    print(out)
+    print(*out,sep="\n")
     print(len(out))
     
