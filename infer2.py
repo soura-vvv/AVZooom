@@ -30,17 +30,7 @@ from mini_librispeech_prepare import prepare_mini_librispeech
 class SEBrain(sb.Brain):
     """Class that manages the training loop. See speechbrain.core.Brain."""
 
-    def infer(model, dataloader):
-        model.eval()  # Set the model to evaluation mode
-        predictions = []
-        with torch.no_grad():
-            for batch in dataloader:
-                waveforms, filenames = batch
-                waveforms = waveforms.to(device)  # Move data to device if using GPU
-                outputs = model(waveforms)
-                _, predicted = torch.max(outputs, 1)
-                predictions.extend(predicted.tolist())
-        return predictions
+
 
 
     def compute_forward(self, batch, stage):
@@ -246,6 +236,19 @@ class SEBrain(sb.Brain):
                 test_stats=stats,
             )
 
+# Define the inference function
+def infer(model, dataloader):
+    model.eval()  # Set the model to evaluation mode
+    predictions = []
+    with torch.no_grad():
+        for batch in dataloader:
+            waveforms, filenames = batch
+            waveforms = waveforms.to(device)  # Move data to device if using GPU
+            outputs = model(waveforms)
+            _, predicted = torch.max(outputs, 1)
+            predictions.extend(predicted.tolist())
+    return predictions
+    
 
 def dataio_prep(hparams):
     """This function prepares the datasets to be used in the brain class.
@@ -365,7 +368,7 @@ if __name__ == "__main__":
     #print("test_stats")
     #print(test_stats)
     
-    infer_stats=se_brain.infer(hparams["model"],datasets["valid"])
+    infer_stats=infer(hparams["model"],datasets["valid"])
     print(infer_stats)
     
     #speechbrain.inference.enhancement
