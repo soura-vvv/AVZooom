@@ -191,6 +191,49 @@ class SEBrain(sb.Brain):
                 metric=sb.nnet.loss.stoi_loss.stoi_loss
             )
 
+    # Define the inference function
+    def infer(self,model, dataloader):
+        model.eval()  # Set the model to evaluation mode
+        predictions = []
+        with torch.no_grad():
+            for batch in dataloader:
+                
+                # We first move the batch to the appropriate device, and
+                # compute the features necessary for masking.
+                batch = batch.to(self.device)
+                self.clean_wavs, self.lens = batch.clean_sig
+
+                noisy_wavs, self.lens = self.hparams.wav_augment(
+                    self.clean_wavs, self.lens
+                )
+
+                noisy_feats = self.compute_feats(noisy_wavs)
+
+                # Masking is done here with the "signal approximation (SA)" algorithm.
+                # The masked input is compared directly with clean speech targets.
+        
+                #Actual Going through the model
+                mask = self.modules.model(noisy_feats)
+        
+                #make mask 259
+                temp_zeros=torch.zeros(mask.size(dim=0),mask.size(dim=1),2).to(device)
+                mask=torch.cat((mask,temp_zeros),2).to(device)
+        
+                #noisy_feats_chopped=torch.split(noisy_feats,257,dim=2)
+                #print("New Dimension:")
+                #print(noisy_feats)
+                #print("Mask Time:")
+                #print(mask.size())
+                predict_spec = torch.mul(mask, noisy_feats)
+                
+                predict_spec_chopped=torch.split(predict_spec,257,dim=2)
+                predict_wav = self.hparams.resynth(
+                    torch.expm1(predict_spec_chopped[0]), noisy_wavs
+                )
+                predictions.append(predict_wav)
+        return predictions
+        
+        
     def on_stage_end(self, stage, stage_loss, epoch=None):
         """Gets called at the end of an epoch.
 
@@ -236,18 +279,7 @@ class SEBrain(sb.Brain):
                 test_stats=stats,
             )
 
-# Define the inference function
-def infer(model, dataloader):
-    model.eval()  # Set the model to evaluation mode
-    predictions = []
-    with torch.no_grad():
-        for batch in dataloader:
-            waveforms, filenames = batch
-            #waveforms = waveforms.to(device)  # Move data to device if using GPU
-            outputs = model(waveforms)
-            _, predicted = torch.max(outputs, 1)
-            predictions.extend(predicted.tolist())
-    return predictions
+
     
 
 def dataio_prep(hparams):
@@ -368,7 +400,7 @@ if __name__ == "__main__":
     #print("test_stats")
     #print(test_stats)
     
-    infer_stats=infer(hparams["model"],datasets["valid"])
+    infer_stats=se_brain.infer(hparams["model"],datasets["valid"])
     print(infer_stats)
     
     #speechbrain.inference.enhancement
