@@ -175,7 +175,7 @@ class SEBrain(sb.Brain):
 
         test_loader_kwargs["ckpt_prefix"] = None
         test_set = self.make_dataloader(
-            test_set, Stage.TEST, **test_loader_kwargs
+            test_set, sb.Stage.TEST, **test_loader_kwargs
         )
         self.on_evaluate_start(max_key=max_key, min_key=min_key)
         self.modules.eval()
