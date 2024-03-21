@@ -331,6 +331,7 @@ if __name__ == "__main__":
     print("=============================================================================")
     #print(*out,sep="\n")
     #print(len(out))
+    print(out[0])
     write_out_audio(out[0])
     
     #/home/sxp3410/Masters/speechbrain/templates/enhancement/AVZooom
