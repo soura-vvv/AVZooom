@@ -334,7 +334,7 @@ def dataio_prep(hparams):
 # Recipe begins!
 if __name__ == "__main__":
     #Sourav Change
-    device="cuda"
+    device="cpu"
 
     # Reading command line arguments
     hparams_file, run_opts, overrides = sb.parse_arguments(sys.argv[1:])
