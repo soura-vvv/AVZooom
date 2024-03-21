@@ -63,6 +63,7 @@ class SEBrain(sb.Brain):
         #)
         noisy_wavs=self.clean_wavs
         noisy_feats = self.compute_feats(noisy_wavs)
+        noisy_feats=noisy_feats.movedim(1,-1)
         noisy_feats=noisy_feats.unsqueeze(0)
         print("Noisy Feats Size")
         print(noisy_feats.size())
