@@ -88,7 +88,8 @@ class SEBrain(sb.Brain):
         #predict_spec=torch.mul(mask,noisy_feats)
         # Also return predicted wav, for evaluation. Note that this could
         # also be used for a time-domain loss term.
-        noisy_wavs=noisy_wavs.unsqueeze(0)
+        noisy_wavs=torch.split(noisy_wavs,500,dim=0)
+        noisy_wavs=noisy_wavs[0].unsqueeze(0)
         predict_spec_chopped=torch.split(predict_spec,257,dim=2)
         print("Predict_SpecSize")
         print(predict_spec.size())
