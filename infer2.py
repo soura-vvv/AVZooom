@@ -576,3 +576,5 @@ if __name__ == "__main__":
         max_key="stoi",
         test_loader_kwargs=hparams["dataloader_options"],
     )
+    
+    print(len(out))
