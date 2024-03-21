@@ -205,49 +205,7 @@ class SEBrain(sb.Brain):
         return out
     
     
-    def infer(self,test_set, max_key=None,min_key=None,progressbar=None,test_loader_kwargs={}):
-        model.eval()  # Set the model to evaluation mode
-        print(dir(self))
-        predictions = []
-        with torch.no_grad():
-            for batch in dataloader:
-                
-                # We first move the batch to the appropriate device, and
-                # compute the features necessary for masking.
-                print(batch)
-                #batch = batch.to(self.device)
-                self.clean_wavs= batch['clean_sig']
-                self.lens=len(self.clean_wavs)
-                #noisy_wavs, self.lens = self.hparams.wav_augment(
-                #    self.clean_wavs, self.lens
-                #)
-                noisy_wavs=self.clean_wavs
-                noisy_feats = self.compute_feats(noisy_wavs).to(device)
-
-                # Masking is done here with the "signal approximation (SA)" algorithm.
-                # The masked input is compared directly with clean speech targets.
-        
-                #Actual Going through the model
-                mask = self.modules.model(noisy_feats)
-        
-                #make mask 259
-                temp_zeros=torch.zeros(mask.size(dim=0),mask.size(dim=1),2).to(device)
-                mask=torch.cat((mask,temp_zeros),2).to(device)
-        
-                #noisy_feats_chopped=torch.split(noisy_feats,257,dim=2)
-                #print("New Dimension:")
-                #print(noisy_feats)
-                #print("Mask Time:")
-                #print(mask.size())
-                predict_spec = torch.mul(mask, noisy_feats)
-                
-                predict_spec_chopped=torch.split(predict_spec,257,dim=2)
-                predict_wav = self.hparams.resynth(
-                    torch.expm1(predict_spec_chopped[0]), noisy_wavs
-                )
-                predictions.append(predict_wav)
-        return predictions
-        
+    
         
     def on_stage_end(self, stage, stage_loss, epoch=None):
         """Gets called at the end of an epoch.
