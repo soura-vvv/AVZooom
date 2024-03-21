@@ -494,15 +494,15 @@ if __name__ == "__main__":
     #)
 
     # Load best checkpoint (highest STOI) for evaluation
-    test_stats,out = se_brain.evaluate(
-        test_set=datasets["test"],
-        max_key="stoi",
-        test_loader_kwargs=hparams["dataloader_options"],
-    )
-    print("test_stats")
-    print(test_stats)
-    print("out--->")
-    print(out)
+    #test_stats,out = se_brain.evaluate(
+    #    test_set=datasets["test"],
+    #    max_key="stoi",
+    #    test_loader_kwargs=hparams["dataloader_options"],
+    #)
+    #print("test_stats")
+    #print(test_stats)
+    #print("out--->")
+    #print(out)
     
     #methods = inspect.getmembers(se_brain, predicate=inspect.ismethod)
     #for name, method in methods:
@@ -511,7 +511,7 @@ if __name__ == "__main__":
     #    print('\n')
     
     
-    #infer_stats=se_brain.infer(hparams["model"],datasets["valid"])
-    #print(infer_stats)
+    infer_stats=se_brain.infer(hparams["model"],datasets["valid"])
+    print(infer_stats)
     
     #speechbrain.inference.enhancement
