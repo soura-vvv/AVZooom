@@ -207,53 +207,7 @@ class SEBrain(sb.Brain):
     
     
         
-    def on_stage_end(self, stage, stage_loss, epoch=None):
-        """Gets called at the end of an epoch.
 
-        Arguments
-        ---------
-        stage : sb.Stage
-            One of sb.Stage.TRAIN, sb.Stage.VALID, sb.Stage.TEST
-        stage_loss : float
-            The average loss for all of the data processed in this stage.
-        epoch : int
-            The currently-starting epoch. This is passed
-            `None` during the test stage.
-        """
-
-        # Store the train loss until the validation stage.
-        if stage == sb.Stage.TRAIN:
-            self.train_loss = stage_loss
-
-        # Summarize the statistics from the stage for record-keeping.
-        else:
-            stats = {
-                "loss": stage_loss,
-                "stoi": -self.stoi_metric.summarize("average"),
-            }
-
-        # At the end of validation, we can write stats and checkpoints
-        if stage == sb.Stage.VALID:
-            # The train_logger writes a summary to stdout and to the logfile.
-            self.hparams.train_logger.log_stats(
-                {"Epoch": epoch},
-                train_stats={"loss": self.train_loss},
-                valid_stats=stats,
-            )
-
-            # Save the current checkpoint and delete previous checkpoints,
-            # unless they have the current best STOI score.
-            self.checkpointer.save_and_keep_only(meta=stats, max_keys=["stoi"])
-
-        # We also write statistics about test data to stdout and to the logfile.
-        if stage == sb.Stage.TEST:
-            self.hparams.train_logger.log_stats(
-                {"Epoch loaded": self.hparams.epoch_counter.current},
-                test_stats=stats,
-            )
-
-
-    
 
 def dataio_prep(hparams):
     """This function prepares the datasets to be used in the brain class.
