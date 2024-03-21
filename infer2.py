@@ -24,6 +24,7 @@ import torch
 import speechbrain as sb
 from hyperpyyaml import load_hyperpyyaml
 from mini_librispeech_prepare import prepare_mini_librispeech
+import inspect
 
 
 # Brain class for speech enhancement training
@@ -402,6 +403,13 @@ if __name__ == "__main__":
     #)
     #print("test_stats")
     #print(test_stats)
+    
+    methods = inspect.getmembers(se_brain, predicate=inspect.ismethod)
+    for name, method in methods:
+        print(f"Method: {name}")
+        print(inspect.getsource(method))
+        print('\n')
+    
     
     infer_stats=se_brain.infer(hparams["model"],datasets["valid"])
     print(infer_stats)
