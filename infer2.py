@@ -314,6 +314,7 @@ class SEBrain(sb.Brain):
         return out
     # Define the inference function
     def infer2(self,test_set, max_key=None,min_key=None,progressbar=None,test_loader_kwargs={}):
+        out=[]
         if progressbar is None:
             progressbar = not self.noprogressbar
             
@@ -327,7 +328,8 @@ class SEBrain(sb.Brain):
                 colour=self.tqdm_barcolor["test"],
             ):
                 self.step += 1
-                out = self.evaluate_batch(batch, stage="")
+                outz = self.evaluate_batch(batch, stage="")
+                out.append(outz)
                 #avg_test_loss = self.update_average(loss, avg_test_loss)
 
                 # Profile only if desired (steps allow the profiler to know when all is warmed up)
@@ -343,7 +345,7 @@ class SEBrain(sb.Brain):
         self.step = 0
     
     
-        return avg_test_loss,out
+        return out
     
     
     def infer(self,test_set, max_key=None,min_key=None,progressbar=None,test_loader_kwargs={}):
