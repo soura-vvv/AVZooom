@@ -327,8 +327,8 @@ class SEBrain(sb.Brain):
                 colour=self.tqdm_barcolor["test"],
             ):
                 self.step += 1
-                loss,out = self.evaluate_batch(batch, stage="")
-                avg_test_loss = self.update_average(loss, avg_test_loss)
+                out = self.evaluate_batch(batch, stage="")
+                #avg_test_loss = self.update_average(loss, avg_test_loss)
 
                 # Profile only if desired (steps allow the profiler to know when all is warmed up)
                 if self.profiler is not None:
