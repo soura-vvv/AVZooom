@@ -195,6 +195,7 @@ class SEBrain(sb.Brain):
     # Define the inference function
     def infer(self,model, dataloader):
         model.eval()  # Set the model to evaluation mode
+        print(dir(self))
         predictions = []
         with torch.no_grad():
             for batch in dataloader:
