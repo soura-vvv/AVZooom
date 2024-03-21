@@ -57,9 +57,14 @@ class SEBrain(sb.Brain):
         print(batch)
         batch = batch.to(self.device)
         
-        exit()
+        
         #self.clean_wavs, self.lens = batch.clean_sig
-        self.clean_wavs=batch["clean_sig"]
+        self.clean_wavs, self.lens = batch.clean_sig
+        print("Clean_WAVS--")
+        print(self.clean_wavs)
+        print("Lens--")
+        print(self.lens)
+        exit()
         #noisy_wavs, self.lens = self.hparams.wav_augment(
         #    self.clean_wavs, self.lens
         #)
