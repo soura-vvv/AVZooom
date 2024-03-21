@@ -114,8 +114,10 @@ class SEBrain(sb.Brain):
 
         # Log1p reduces the emphasis on small differences
         feats = torch.log1p(feats)
-
+        #feats=feats.movedim(1,-1)
+        feats=feats.unsqueeze(0)
         #Sourav Change
+        print("FeAts Size")
         print(feats.size())
         temp_zeros=torch.zeros(feats.size(dim=0),feats.size(dim=1),2).to(device)
         #print("Temp_Zeros Size:")
