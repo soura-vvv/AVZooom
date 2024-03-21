@@ -193,6 +193,104 @@ class SEBrain(sb.Brain):
                 metric=sb.nnet.loss.stoi_loss.stoi_loss
             )
 
+    def evaluate(
+        self,
+        test_set,
+        max_key=None,
+        min_key=None,
+        progressbar=None,
+        test_loader_kwargs={},
+    ):
+        """Iterate test_set and evaluate brain performance. By default, loads
+        the best-performing checkpoint (as recorded using the checkpointer).
+
+        Arguments
+        ---------
+        test_set : Dataset, DataLoader
+            If a DataLoader is given, it is iterated directly. Otherwise passed
+            to ``self.make_dataloader()``.
+        max_key : str
+            Key to use for finding best checkpoint, passed to
+            ``on_evaluate_start()``.
+        min_key : str
+            Key to use for finding best checkpoint, passed to
+            ``on_evaluate_start()``.
+        progressbar : bool
+            Whether to display the progress in a progressbar.
+        test_loader_kwargs : dict
+            Kwargs passed to ``make_dataloader()`` if ``test_set`` is not a
+            DataLoader. NOTE: ``loader_kwargs["ckpt_prefix"]`` gets
+            automatically overwritten to ``None`` (so that the test DataLoader
+            is not added to the checkpointer).
+
+        Returns
+        -------
+        average test loss
+        """
+        if progressbar is None:
+            progressbar = not self.noprogressbar
+
+        if not (
+            isinstance(test_set, DataLoader)
+            or isinstance(test_set, LoopedLoader)
+        ):
+            test_loader_kwargs["ckpt_prefix"] = None
+            test_set = self.make_dataloader(
+                test_set, Stage.TEST, **test_loader_kwargs
+            )
+        self.on_evaluate_start(max_key=max_key, min_key=min_key)
+        self.on_stage_start(Stage.TEST, epoch=None)
+        self.modules.eval()
+        avg_test_loss = 0.0
+        with torch.no_grad():
+            for batch in tqdm(
+                test_set,
+                dynamic_ncols=True,
+                disable=not progressbar,
+                colour=self.tqdm_barcolor["test"],
+            ):
+                self.step += 1
+                loss,out = self.evaluate_batch(batch, stage=Stage.TEST)
+                avg_test_loss = self.update_average(loss, avg_test_loss)
+
+                # Profile only if desired (steps allow the profiler to know when all is warmed up)
+                if self.profiler is not None:
+                    if self.profiler.record_steps:
+                        self.profiler.step()
+
+                # Debug mode only runs a few batches
+                if self.debug and self.step == self.debug_batches:
+                    break
+
+            self.on_stage_end(Stage.TEST, avg_test_loss, None)
+        self.step = 0
+        return avg_test_loss,out
+
+    def evaluate_batch(self, batch, stage):
+        """Evaluate one batch, override for different procedure than train.
+
+        The default implementation depends on two methods being defined
+        with a particular behavior:
+
+        * ``compute_forward()``
+        * ``compute_objectives()``
+
+        Arguments
+        ---------
+        batch : list of torch.Tensors
+            Batch of data to use for evaluation. Default implementation assumes
+            this batch has two elements: inputs and targets.
+        stage : Stage
+            The stage of the experiment: Stage.VALID, Stage.TEST
+
+        Returns
+        -------
+        detached loss
+        """
+
+        out = self.compute_forward(batch, stage=stage)
+        loss = self.compute_objectives(out, batch, stage=stage)
+        return loss.detach().cpu(),out
     # Define the inference function
     def infer(self,model, dataloader):
         model.eval()  # Set the model to evaluation mode
@@ -396,22 +494,22 @@ if __name__ == "__main__":
     #)
 
     # Load best checkpoint (highest STOI) for evaluation
-    #test_stats = se_brain.evaluate(
-    #    test_set=datasets["test"],
-    #    max_key="stoi",
-    #    test_loader_kwargs=hparams["dataloader_options"],
-    #)
-    #print("test_stats")
-    #print(test_stats)
+    test_stats,out = se_brain.evaluate(
+        test_set=datasets["test"],
+        max_key="stoi",
+        test_loader_kwargs=hparams["dataloader_options"],
+    )
+    print("test_stats")
+    print(test_stats)
     
-    methods = inspect.getmembers(se_brain, predicate=inspect.ismethod)
-    for name, method in methods:
-        print(f"Method: {name}")
-        print(inspect.getsource(method))
-        print('\n')
+    #methods = inspect.getmembers(se_brain, predicate=inspect.ismethod)
+    #for name, method in methods:
+    #    print(f"Method: {name}")
+    #    print(inspect.getsource(method))
+    #    print('\n')
     
     
-    infer_stats=se_brain.infer(hparams["model"],datasets["valid"])
-    print(infer_stats)
+    #infer_stats=se_brain.infer(hparams["model"],datasets["valid"])
+    #print(infer_stats)
     
     #speechbrain.inference.enhancement
