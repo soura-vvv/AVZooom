@@ -107,6 +107,7 @@ class SEBrain(sb.Brain):
         feats = torch.log1p(feats)
 
         #Sourav Change
+        print(feats.size())
         temp_zeros=torch.zeros(feats.size(dim=0),feats.size(dim=1),2).to(device)
         #print("Temp_Zeros Size:")
         #print(temp_zeros.size())
