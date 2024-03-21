@@ -571,7 +571,7 @@ if __name__ == "__main__":
     #print(infer_stats)
     
     #speechbrain.inference.enhancement
-    test_stats,out = se_brain.infer2(
+    out = se_brain.infer2(
         test_set=datasets["test"],
         max_key="stoi",
         test_loader_kwargs=hparams["dataloader_options"],
