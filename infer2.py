@@ -271,8 +271,8 @@ class SEBrain(sb.Brain):
                 colour=self.tqdm_barcolor["test"],
             ):
                 self.step += 1
-                loss,out = self.evaluate_batch(batch, "")
-                avg_test_loss = self.update_average(loss, avg_test_loss)
+                #loss,out = self.evaluate_batch(batch, "")
+                #avg_test_loss = self.update_average(loss, avg_test_loss)
 
                 # Profile only if desired (steps allow the profiler to know when all is warmed up)
                 if self.profiler is not None:
@@ -285,7 +285,7 @@ class SEBrain(sb.Brain):
 
             self.on_stage_end(Stage.TEST, avg_test_loss, None)
         self.step = 0
-        return avg_test_loss,out
+        return out
 
     def evaluate_batch(self, batch, stage):
         """Evaluate one batch, override for different procedure than train.
@@ -310,8 +310,8 @@ class SEBrain(sb.Brain):
         """
 
         out = self.compute_forward(batch, stage=stage)
-        loss = self.compute_objectives(out, batch, stage=stage)
-        return loss.detach().cpu(),out
+        #loss = self.compute_objectives(out, batch, stage=stage)
+        return out
     # Define the inference function
     def infer2(self,test_set, max_key=None,min_key=None,progressbar=None,test_loader_kwargs={}):
         if progressbar is None:
