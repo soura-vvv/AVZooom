@@ -25,6 +25,7 @@ import speechbrain as sb
 from hyperpyyaml import load_hyperpyyaml
 from mini_librispeech_prepare import prepare_mini_librispeech
 import inspect
+import tqdm
 
 
 # Brain class for speech enhancement training
