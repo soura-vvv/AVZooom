@@ -283,7 +283,7 @@ class SEBrain(sb.Brain):
                 if self.debug and self.step == self.debug_batches:
                     break
 
-            self.on_stage_end(Stage.TEST, 0, None)
+            #self.on_stage_end(Stage.TEST, 0, None)
         self.step = 0
         return out
 
@@ -340,6 +340,8 @@ class SEBrain(sb.Brain):
                 # Debug mode only runs a few batches
                 if self.debug and self.step == self.debug_batches:
                     break
+                
+                exit()
 
             #self.on_stage_end(Stage.TEST, avg_test_loss, None)
         self.step = 0
@@ -526,7 +528,7 @@ if __name__ == "__main__":
     # Create dataset objects "train" and "valid"
     datasets = dataio_prep(hparams)
 
-    # Initialize the Brain object to prepare for mask training.
+    
     se_brain = SEBrain(
         modules=hparams["modules"],
         opt_class=hparams["opt_class"],
@@ -535,48 +537,15 @@ if __name__ == "__main__":
         checkpointer=hparams["checkpointer"],
     )
 
-    # The `fit()` method iterates the training loop, calling the methods
-    # necessary to update the parameters of the model. Since all objects
-    # with changing state are managed by the Checkpointer, training can be
-    # stopped at any point, and will be resumed on next call.
     print(hparams["model"])
 
-    #se_brain.fit(
-    #    epoch_counter=se_brain.hparams.epoch_counter,
-    #    train_set=datasets["train"],
-    #    valid_set=datasets["valid"],
-    #    train_loader_kwargs=hparams["dataloader_options"],
-    #    valid_loader_kwargs=hparams["dataloader_options"],
-    #)
-
-    # Load best checkpoint (highest STOI) for evaluation
-    #test_stats,out = se_brain.evaluate(
-    #    test_set=datasets["test"],
-    #    max_key="stoi",
-    #    test_loader_kwargs=hparams["dataloader_options"],
-    #)
-    #print("test_stats")
-    #print(test_stats)
-    #print("out--->")
-    #print(out)
-    
-    #methods = inspect.getmembers(se_brain, predicate=inspect.ismethod)
-    #for name, method in methods:
-    #    print(f"Method: {name}")
-    #    print(inspect.getsource(method))
-    #    print('\n')
-    
-    
-    #infer_stats=se_brain.infer(hparams["model"],datasets["valid"])
-    #print(infer_stats)
-    
-    #speechbrain.inference.enhancement
     out = se_brain.infer2(
         test_set=datasets["test"],
         max_key="stoi",
         test_loader_kwargs=hparams["dataloader_options"],
     )
     print("=============================================================================")
-    print(*out,sep="\n")
+    #print(*out,sep="\n")
     print(len(out))
     
+    #/home/sxp3410/Masters/speechbrain/templates/enhancement/AVZooom
