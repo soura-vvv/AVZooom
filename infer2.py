@@ -141,80 +141,7 @@ class SEBrain(sb.Brain):
         #Sourav Change End
         return feats
 
-    def compute_objectives(self, predictions, batch, stage):
-        """Computes the loss given the predicted and targeted outputs.
-
-        Arguments
-        ---------
-        predictions : dict
-            The output dict from `compute_forward`.
-        batch : PaddedBatch
-            This batch object contains all the relevant tensors for computation.
-        stage : sb.Stage
-            One of sb.Stage.TRAIN, sb.Stage.VALID, or sb.Stage.TEST.
-
-        Returns
-        -------
-        loss : torch.Tensor
-            A one-element tensor used for backpropagating the gradient.
-        """
-
-        # Prepare clean targets for comparison
-        clean_spec = self.compute_feats(self.clean_wavs)
-
-        # Directly compare the masked spectrograms with the clean targets
-        loss = sb.nnet.losses.mse_loss(
-            predictions["spec"], clean_spec, self.lens
-        )
-
-        # Append this batch of losses to the loss metric for easy
-        self.loss_metric.append(
-            batch.id,
-            predictions["spec"],
-            clean_spec,
-            self.lens,
-            reduction="batch",
-        )
-
-        # Some evaluations are slower, and we only want to perform them
-        # on the validation set.
-        if stage != sb.Stage.TRAIN:
-
-            # Evaluate speech intelligibility as an additional metric
-            self.stoi_metric.append(
-                batch.id,
-                predictions["wav"],
-                self.clean_wavs,
-                self.lens,
-                reduction="batch",
-            )
-
-        return loss
-
-    def on_stage_start(self, stage, epoch=None):
-        """Gets called at the beginning of each epoch.
-
-        Arguments
-        ---------
-        stage : sb.Stage
-            One of sb.Stage.TRAIN, sb.Stage.VALID, or sb.Stage.TEST.
-        epoch : int
-            The currently-starting epoch. This is passed
-            `None` during the test stage.
-        """
-
-        # Set up statistics trackers for this stage
-        self.loss_metric = sb.utils.metric_stats.MetricStats(
-            metric=sb.nnet.losses.mse_loss
-        )
-
-        # Set up evaluation-only statistics trackers
-        if stage != sb.Stage.TRAIN:
-            self.stoi_metric = sb.utils.metric_stats.MetricStats(
-                metric=sb.nnet.loss.stoi_loss.stoi_loss
-            )
-
-
+   
     def evaluate_batch(self, batch, stage):
         """Evaluate one batch, override for different procedure than train.
 
@@ -269,7 +196,7 @@ class SEBrain(sb.Brain):
                 if self.debug and self.step == self.debug_batches:
                     break
                 
-                #exit()
+                exit()
 
             #self.on_stage_end(Stage.TEST, avg_test_loss, None)
         self.step = 0
