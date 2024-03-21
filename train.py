@@ -90,7 +90,7 @@ class SEBrain(sb.Brain):
         print("Predict_SpecSize")
         print(predict_spec.size())
         print("Predict_Spec_ChoppedSize")
-        print(predict_spec_chopped.size())
+        print(predict_spec_chopped[0].size())
         exit()
         predict_wav = self.hparams.resynth(
             torch.expm1(predict_spec_chopped[0]), noisy_wavs
