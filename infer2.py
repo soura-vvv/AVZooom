@@ -208,7 +208,7 @@ class SEBrain(sb.Brain):
                 #    self.clean_wavs, self.lens
                 #)
                 noisy_wavs=self.clean_wavs
-                noisy_feats = self.compute_feats(noisy_wavs)
+                noisy_feats = self.compute_feats(noisy_wavs).to(device)
 
                 # Masking is done here with the "signal approximation (SA)" algorithm.
                 # The masked input is compared directly with clean speech targets.
