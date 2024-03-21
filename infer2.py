@@ -107,6 +107,8 @@ class SEBrain(sb.Brain):
         """
 
         # Log-spectral features
+        print("Wavs Size")
+        print(wavs.size())
         feats = self.hparams.compute_STFT(wavs)
         feats = sb.processing.features.spectral_magnitude(feats, power=0.5)
 
