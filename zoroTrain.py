@@ -350,7 +350,7 @@ if __name__ == "__main__":
     # with changing state are managed by the Checkpointer, training can be
     # stopped at any point, and will be resumed on next call.
     print(hparams["model"])
-
+    print(hparams["skip_prep"])
     #se_brain.fit(
     #    epoch_counter=se_brain.hparams.epoch_counter,
     #    train_set=datasets["train"],
