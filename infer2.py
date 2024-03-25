@@ -267,7 +267,7 @@ def dataio_prep(hparams):
 
 def write_out_audio(audio_wavs):
     sample_rate=hparams["sample_rate"]
-    samples=audio_wavs.numpy()
+    samples=audio_wavs.cpu().numpy()
     
     wavf.write("TestInference.wav",sample_rate,samples)
     
