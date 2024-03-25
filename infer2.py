@@ -55,17 +55,17 @@ class SEBrain(sb.Brain):
 
         # We first move the batch to the appropriate device, and
         # compute the features necessary for masking.
-        print("Batchsdhosijd---------------------")
-        print(batch)
+        #print("Batchsdhosijd---------------------")
+        #print(batch)
         batch = batch.to(self.device)
         
         
         #self.clean_wavs, self.lens = batch.clean_sig
         self.clean_wavs, self.lens = batch.clean_sig
-        print("Clean_WAVS--")
-        print(self.clean_wavs)
-        print("Lens--")
-        print(self.lens)
+        #print("Clean_WAVS--")
+        #print(self.clean_wavs)
+        #print("Lens--")
+        #print(self.lens)
         
         noisy_wavs, self.lens = self.hparams.wav_augment(
             self.clean_wavs, self.lens
@@ -75,8 +75,8 @@ class SEBrain(sb.Brain):
 
         noisy_feats = self.compute_feats(noisy_wavs)
 
-        print("Noisy Feats Size")
-        print(noisy_feats.size())
+        #print("Noisy Feats Size")
+        #print(noisy_feats.size())
         # Masking is done here with the "signal approximation (SA)" algorithm.
         # The masked input is compared directly with clean speech targets.
         
@@ -100,12 +100,12 @@ class SEBrain(sb.Brain):
         # also be used for a time-domain loss term.
         
         predict_spec_chopped=torch.split(predict_spec,257,dim=2)
-        print("Predict_SpecSize")
-        print(predict_spec.size())
-        print("Predict_Spec_ChoppedSize")
-        print(predict_spec_chopped[0].size())
-        print("Noisy Wavs Size")
-        print(noisy_wavs.size())
+        #print("Predict_SpecSize")
+        #print(predict_spec.size())
+        #print("Predict_Spec_ChoppedSize")
+        #print(predict_spec_chopped[0].size())
+        #print("Noisy Wavs Size")
+        #print(noisy_wavs.size())
         #print("Noisy Wavs Size")
         #print(noisy_wavs.size())
         predict_wav = self.hparams.resynth(
