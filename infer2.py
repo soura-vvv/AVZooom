@@ -322,16 +322,16 @@ if __name__ == "__main__":
     )
 
     print(hparams["model"])
-
-    out = se_brain.infer2(
-        test_set=datasets["test"],
-        max_key="stoi",
-        test_loader_kwargs=hparams["dataloader_options"],
-    )
+    print(datasets["train"])
+    #out = se_brain.infer2(
+    #    test_set=datasets["test"],
+    #    max_key="stoi",
+    #    test_loader_kwargs=hparams["dataloader_options"],
+    #)
     print("=============================================================================")
     #print(*out,sep="\n")
-    print(len(out[0]['wav'][0]))
-    print(out[0])
-    write_out_audio(out[0]['wav'][0])
+    #print(len(out[0]['wav'][0]))
+    #print(out[0])
+    #write_out_audio(out[0]['wav'][0])
     
     #/home/sxp3410/Masters/speechbrain/templates/enhancement/AVZooom
