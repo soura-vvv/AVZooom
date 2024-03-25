@@ -330,7 +330,7 @@ if __name__ == "__main__":
     )
     print("=============================================================================")
     #print(*out,sep="\n")
-    print(len(out))
+    print(len(out[0]['wav']))
     print(out[0])
     #write_out_audio(out[0])
     
