@@ -322,13 +322,14 @@ if __name__ == "__main__":
     )
 
     print(hparams["model"])
-    print(datasets["train"])
+    #print(datasets["train"])
     #out = se_brain.infer2(
     #    test_set=datasets["test"],
     #    max_key="stoi",
     #    test_loader_kwargs=hparams["dataloader_options"],
     #)
     print("=============================================================================")
+    print(hparams["train_annotation"])
     #print(*out,sep="\n")
     #print(len(out[0]['wav'][0]))
     #print(out[0])
