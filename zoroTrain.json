@@ -1,0 +1,12 @@
+{
+  "163-122947-0032": {
+    "wav": "{data_root}/LibriSpeech/train-clean-5/163/122947/163-122947-0032.flac",
+    "length": 13.655,
+    "coordinates":[1.0,1.0]
+  },
+"332-128985-0080": {
+  "wav": "{data_root}/LibriSpeech/train-clean-5/332/128985/332-128985-0080.flac",
+  "length": 15.76,
+  "coordinates":[0.5,0.5]
+    }
+}
