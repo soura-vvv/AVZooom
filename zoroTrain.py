@@ -286,7 +286,9 @@ def dataio_prep(hparams):
         "train": hparams["train_annotation"],
         "valid": hparams["valid_annotation"],
         "test": hparams["test_annotation"],
-        "zoroTrain":hparams["zororTrain_annotation"]
+        "zoroTrain":hparams["zororTrain_annotation"],
+        "zoroValid":hparams["zororTrain_annotation"],
+        "zoroTest":hparams["zororTrain_annotation"]"
     }
     hparams["dataloader_options"]["shuffle"] = False
     for dataset in data_info:
