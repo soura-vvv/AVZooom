@@ -66,7 +66,7 @@ class SEBrain(sb.Brain):
         print(noisy_feats.size())
         
         #Appending Coordinates
-        coordinates=torch.tensor(batch.coordinates)
+        coordinates=torch.tensor(batch.coordinates).to(device)
         noisy_feats=torch.cat((noisy_feats,coordinates),2).to(device)
         print("Coordinated Feats Size")
         print(noisy_feats.size())
