@@ -49,7 +49,7 @@ class SEBrain(sb.Brain):
         # compute the features necessary for masking.
         print("Batchbatchbatcb-------------------------")
         print(batch)
-        
+        exit()
         batch = batch.to(self.device)
         self.clean_wavs, self.lens = batch.clean_sig
         print("Clean_WAVS--")
@@ -60,7 +60,7 @@ class SEBrain(sb.Brain):
         noisy_wavs, self.lens = self.hparams.wav_augment(
             self.clean_wavs, self.lens
         )
-
+        
         noisy_feats = self.compute_feats(noisy_wavs)
         print("NoisyFeat Size:")
         print(noisy_feats.size())
