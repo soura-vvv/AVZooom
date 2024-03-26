@@ -48,7 +48,7 @@ class SEBrain(sb.Brain):
         # We first move the batch to the appropriate device, and
         # compute the features necessary for masking.
         print("Batchbatchbatcb-------------------------")
-        print(batch)
+        print(batch.clean_sig)
         exit()
         batch = batch.to(self.device)
         self.clean_wavs, self.lens = batch.clean_sig
