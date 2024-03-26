@@ -32,6 +32,8 @@ train_annotation: train.json
 valid_annotation: valid.json
 test_annotation: test.json
 zoroTrain_annotation: zoroTrain.json
+zoroValid_annotation: zoroValid.json
+zoroTest_annotation: zoroTest.json
 skip_prep: False
 
 # Data for augmentation
