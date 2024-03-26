@@ -108,7 +108,7 @@ class SEBrain(sb.Brain):
         # Also return predicted wav, for evaluation. Note that this could
         # also be used for a time-domain loss term.
         
-        predict_spec_chopped=torch.split(predict_spec,257,dim=2)
+        #predict_spec_chopped=torch.split(predict_spec,257,dim=2)
         #print("Predict_SpecSize")
         #print(predict_spec.size())
         #print("Predict_Spec_ChoppedSize")
@@ -118,7 +118,7 @@ class SEBrain(sb.Brain):
         #print("Noisy Wavs Size")
         #print(noisy_wavs.size())
         predict_wav = self.hparams.resynth(
-            torch.expm1(predict_spec_chopped[0]), noisy_wavs
+            torch.expm1(predict_spec), noisy_wavs
         )
         
         #predict_wav=0
