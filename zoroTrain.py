@@ -49,7 +49,7 @@ class SEBrain(sb.Brain):
         # compute the features necessary for masking.
         print("Batchbatchbatcb-------------------------")
         print(batch.coordinates)
-        exit()
+        #exit()
         batch = batch.to(self.device)
         self.clean_wavs, self.lens = batch.clean_sig
         print("Clean_WAVS--")
@@ -65,9 +65,14 @@ class SEBrain(sb.Brain):
         print("NoisyFeat Size:")
         print(noisy_feats.size())
         
+        #Appending Coordinates
+        coordinates=torch.tensor(batch.coordinates)
+        noisy_feats=torch.cat((feats,coordinates),2).to(device)
+        print("Coordinated Feats Size")
+        print(noisy_feats.size())
         # Masking is done here with the "signal approximation (SA)" algorithm.
         # The masked input is compared directly with clean speech targets.
-        
+        exit()
         #Actual Training
         mask = self.modules.model(noisy_feats)
         
@@ -103,7 +108,7 @@ class SEBrain(sb.Brain):
         # Return a dictionary so we don't have to remember the order
         return {"spec": predict_spec, "wav": predict_wav}
 
-    def compute_feats(self, wavs,coordinates):
+    def compute_feats(self, wavs):
         """Returns corresponding log-spectral features of the input waveforms.
 
         Arguments
@@ -120,12 +125,12 @@ class SEBrain(sb.Brain):
         feats = torch.log1p(feats)
 
         #Sourav Change
-        temp_zeros=torch.zeros(feats.size(dim=0),feats.size(dim=1),2).to(device)
+        #temp_zeros=torch.zeros(feats.size(dim=0),feats.size(dim=1),2).to(device)
         #print("Temp_Zeros Size:")
         #print(temp_zeros.size())
         #print("Feats Size:")
         #print(feats.size())
-        feats=torch.cat((feats,temp_zeros),2).to(device)
+        #feats=torch.cat((feats,temp_zeros),2).to(device)
         #print("Post Feats Size:")
         #print(feats.size())
         #Sourav Change End
