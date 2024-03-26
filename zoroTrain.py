@@ -70,7 +70,7 @@ class SEBrain(sb.Brain):
         print("coordinates size:")
         print(coordinates.size())
         
-        coordinates=coordinates.unsqueeze(0)
+        coordinates=coordinates.unsqueeze(1)
         print("coordinates Unsqueezed size:")
         print(coordinates.size())
 
