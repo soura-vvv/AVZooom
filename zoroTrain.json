@@ -2,11 +2,11 @@
   "163-122947-0032": {
     "wav": "{data_root}/LibriSpeech/train-clean-5/163/122947/163-122947-0032.flac",
     "length": 13.655
-  ,
+      ,"coordinates":[0.5,0.5]},
   "163-122947-0027": {
       "wav": "{data_root}/LibriSpeech/train-clean-5/163/122947/163-122947-0027.flac",
       "length": 13.835
-      ,"coordinates":[0.5,0.5]
+      ,"coordinates":[0.5,0.5]},
       "163-122947-0060": {
           "wav": "{data_root}/LibriSpeech/train-clean-5/163/122947/163-122947-0060.flac",
           "length": 15.33
