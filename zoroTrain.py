@@ -78,14 +78,14 @@ class SEBrain(sb.Brain):
         print("Repeated Tensor size:")
         print(coordinates.size())
 
-        noisy_feats=torch.cat((noisy_feats,coordinates),2).to(device)
+        noisy_feats_coordinates=torch.cat((noisy_feats,coordinates),2).to(device)
         print("Coordinated Feats Size")
         print(noisy_feats.size())
         # Masking is done here with the "signal approximation (SA)" algorithm.
         # The masked input is compared directly with clean speech targets.
         
         #Actual Training
-        mask = self.modules.model(noisy_feats)
+        mask = self.modules.model(noisy_feats_coordinates)
         
         #make mask 259
         temp_zeros=torch.zeros(mask.size(dim=0),mask.size(dim=1),2).to(device)
