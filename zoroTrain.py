@@ -83,7 +83,7 @@ class SEBrain(sb.Brain):
         print(noisy_feats.size())
         # Masking is done here with the "signal approximation (SA)" algorithm.
         # The masked input is compared directly with clean speech targets.
-        exit()
+        
         #Actual Training
         mask = self.modules.model(noisy_feats)
         
