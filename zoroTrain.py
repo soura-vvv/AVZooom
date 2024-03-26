@@ -73,6 +73,10 @@ class SEBrain(sb.Brain):
         coordinates=coordinates.unsqueeze(1)
         print("coordinates Unsqueezed size:")
         print(coordinates.size())
+        
+        coordinates=coordinates.repeat(1,noisy_feats.size(dim=1),1)
+        print("Repeated Tensor size:")
+        print(coordinates.size())
 
         noisy_feats=torch.cat((noisy_feats,coordinates),2).to(device)
         print("Coordinated Feats Size")
