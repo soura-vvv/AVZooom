@@ -111,7 +111,7 @@ class SEBrain(sb.Brain):
         print(noisy_wavs.size())
         
         predict_wav = self.hparams.resynth(
-            torch.expm1(predict_spec_chopped[0]), noisy_wavs
+            torch.expm1(predict_spec), noisy_wavs
         )
         
         #predict_wav=0

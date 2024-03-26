@@ -80,12 +80,21 @@ class SEBrain(sb.Brain):
         # Masking is done here with the "signal approximation (SA)" algorithm.
         # The masked input is compared directly with clean speech targets.
         
+        #Appending Coordinates
+        coordinates=torch.tensor(batch.coordinates).to(device)
+        coordinates=coordinates.unsqueeze(1)
+        coordinates=coordinates.repeat(1,noisy_feats.size(dim=1),1)
+        
+        noisy_feats_coordinates=torch.cat((noisy_feats,coordinates),2).to(device)
+        
+        
         #Actual Training
-        mask = self.modules.model(noisy_feats)
+        mask = self.modules.model(noisy_feats_coordinates)
+        
         
         #make mask 259
-        temp_zeros=torch.zeros(mask.size(dim=0),mask.size(dim=1),2).to(device)
-        mask=torch.cat((mask,temp_zeros),2).to(device)
+        #temp_zeros=torch.zeros(mask.size(dim=0),mask.size(dim=1),2).to(device)
+        #mask=torch.cat((mask,temp_zeros),2).to(device)
         
         #noisy_feats_chopped=torch.split(noisy_feats,257,dim=2)
         #print("New Dimension:")
@@ -134,12 +143,12 @@ class SEBrain(sb.Brain):
         feats = torch.log1p(feats)
 
         #Sourav Change
-        temp_zeros=torch.zeros(feats.size(dim=0),feats.size(dim=1),2).to(device)
+        #temp_zeros=torch.zeros(feats.size(dim=0),feats.size(dim=1),2).to(device)
         #print("Temp_Zeros Size:")
         #print(temp_zeros.size())
         #print("Feats Size:")
         #print(feats.size())
-        feats=torch.cat((feats,temp_zeros),2).to(device)
+        #feats=torch.cat((feats,temp_zeros),2).to(device)
         #print("Post Feats Size:")
         #print(feats.size())
         #Sourav Change End
