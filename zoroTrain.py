@@ -295,10 +295,12 @@ def dataio_prep(hparams):
         This is done on the CPU in the `collate_fn`."""
         clean_sig = sb.dataio.dataio.read_audio(wav)
         return clean_sig
-    def audio_pipeline2(wav):
+    @sb.utils.data_pipeline.takes("noisy_wav")
+    @sb.utils.data_pipeline.provides("noisy_sig")
+    def audio_pipeline2(noisy_wav):
         """Load the signal, and pass it and its length to the corruption class.
         This is done on the CPU in the `collate_fn`."""
-        noisy_sig = sb.dataio.dataio.read_audio(wav)
+        noisy_sig = sb.dataio.dataio.read_audio(noisy_wav)
         return noisy_sig
 
     # Define datasets sorted by ascending lengths for efficiency
