@@ -295,11 +295,7 @@ def dataio_prep(hparams):
         This is done on the CPU in the `collate_fn`."""
         clean_sig = sb.dataio.dataio.read_audio(wav)
         return clean_sig
-    def audio_pipeline2(wav):
-        """Load the signal, and pass it and its length to the corruption class.
-        This is done on the CPU in the `collate_fn`."""
-        noisy_sig = sb.dataio.dataio.read_audio(wav)
-        return noisy_sig
+
 
     # Define datasets sorted by ascending lengths for efficiency
     datasets = {}
@@ -318,7 +314,7 @@ def dataio_prep(hparams):
             json_path=data_info[dataset],
             replacements={"data_root": hparams["data_folder"]},
             dynamic_items=[audio_pipeline,audio_pipeline2],
-            output_keys=["id", "clean_sig","coordinates","noisy_sig"],
+            output_keys=["id", "clean_sig","coordinates"],
         ).filtered_sorted(sort_key="length")
     return datasets
 
