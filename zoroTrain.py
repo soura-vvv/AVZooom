@@ -322,7 +322,7 @@ def dataio_prep(hparams):
             json_path=data_info[dataset],
             replacements={"data_root": hparams["data_folder"]},
             dynamic_items=[audio_pipeline,audio_pipeline2],
-            output_keys=["id", "clean_sig","noisy_wav","coordinates"],
+            output_keys=["id", "clean_sig","noisy_sig","coordinates"],
         ).filtered_sorted(sort_key="length")
     return datasets
 
