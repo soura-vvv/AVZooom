@@ -317,8 +317,8 @@ def dataio_prep(hparams):
         datasets[dataset] = sb.dataio.dataset.DynamicItemDataset.from_json(
             json_path=data_info[dataset],
             replacements={"data_root": hparams["data_folder"]},
-            dynamic_items=[audio_pipeline,audio_pipeline2],
-            output_keys=["id", "clean_sig","coordinates"],
+            dynamic_items=[audio_pipeline],
+            output_keys=["id", "clean_sig","noisy_wav","coordinates"],
         ).filtered_sorted(sort_key="length")
     return datasets
 
