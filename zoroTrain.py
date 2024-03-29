@@ -295,7 +295,7 @@ def dataio_prep(hparams):
         This is done on the CPU in the `collate_fn`."""
         clean_sig = sb.dataio.dataio.read_audio(wav)
         return clean_sig
-    def def audio_pipeline2(wav):
+    def audio_pipeline2(wav):
         """Load the signal, and pass it and its length to the corruption class.
         This is done on the CPU in the `collate_fn`."""
         noisy_sig = sb.dataio.dataio.read_audio(wav)
