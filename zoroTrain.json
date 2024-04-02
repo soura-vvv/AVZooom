@@ -891,12 +891,12 @@
         "noisy_wav": "{data_root}/LibriSpeech/train-clean-5/163/122947/163-122947-0078.flac"
     },
     "163-122948-999": {
-        "wav": "{data_root}/LibriSpeech/train-clean-5/999/audio_file.flac",
+        "wav": "{data_root}/LibriSpeech/train-clean-5/999/temp_audio_file.wav",
         "length": 4.31,
         "coordinates": [
             0.91,
             0.83
         ],
-        "noisy_wav": "{data_root}/LibriSpeech/train-clean-5/999/audio_file.flac"
+        "noisy_wav": "{data_root}/LibriSpeech/train-clean-5/999/temp_audio_file.wav"
     }
 }
