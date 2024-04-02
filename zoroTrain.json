@@ -890,4 +890,13 @@
         ],
         "noisy_wav": "{data_root}/LibriSpeech/train-clean-5/163/122947/163-122947-0078.flac"
     }
+    "[20, 20, 20]/[19.09 16.67  1.7 ].wav": {
+        "wav": "{data_root}/LibriSpeech/train-clean-5/999/[19.09 16.67  1.7 ].wav",
+        "length": 3.52,
+        "coordinates": [
+            0.91,
+            0.83
+        ],
+        "noisy_wav": "{data_root}/LibriSpeech/train-clean-5/999/[19.09 16.67  1.7 ].wav"
+    }
 }
