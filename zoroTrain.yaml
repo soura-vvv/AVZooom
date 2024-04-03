@@ -28,13 +28,13 @@ train_log: !ref <output_folder>/train_log.txt
 
 # Path where data manifest files will be stored
 # The data manifest files are created by the data preparation script.
-train_annotation: train.json
-valid_annotation: valid.json
-test_annotation: test.json
-zoroTrain_annotation: zoroTrain.json
-zoroValid_annotation: zoroValid.json
-zoroTest_annotation: zoroTest.json
-skip_prep: False
+train_annotation: zorozoroTrain.json
+valid_annotation: zorozoroValid.json
+test_annotation: zorozoroTest.json
+#zoroTrain_annotation: zoroTrain.json
+#zoroValid_annotation: zoroValid.json
+#zoroTest_annotation: zoroTest.json
+skip_prep: True
 
 # Data for augmentation
 data_folder_noise: !ref <data_folder>/noise # The noisy sequencies for data augmentation will automatically be downloaded here.
