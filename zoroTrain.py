@@ -380,6 +380,7 @@ if __name__ == "__main__":
     # stopped at any point, and will be resumed on next call.
     print(hparams["model"])
     #print(hparams["skip_prep"])
+    print(datasets["train"])
     se_brain.fit(
         epoch_counter=se_brain.hparams.epoch_counter,
         train_set=datasets["train"],
