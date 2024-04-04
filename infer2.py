@@ -342,7 +342,7 @@ if __name__ == "__main__":
     print(hparams["train_annotation"])
     #print(*out,sep="\n")
     #print(len(out[0]['wav'][0]))
-    wavzout=np.array(out[0]['wav'][0])
+    wavzout=out[0]['wav'][0]
     samples=wavzout.cpu().numpy()
     write("inferenceOut1.wav", hparams["sample_rate"], samples.astype(np.int16))
     #write_out_audio(out[0]['wav'][0])
