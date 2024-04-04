@@ -23,7 +23,7 @@ import torch
 import speechbrain as sb
 from hyperpyyaml import load_hyperpyyaml
 from mini_librispeech_prepare import prepare_mini_librispeech
-
+numpy.set_printoptions(threshold=10_000)
 
 # Brain class for speech enhancement training
 class SEBrain(sb.Brain):
@@ -59,10 +59,10 @@ class SEBrain(sb.Brain):
         print("Lens--")
         print(self.lens)
         
-        noisy_wavs, self.lens = self.hparams.wav_augment(
-            self.clean_wavs, self.lens
-        )
-        
+        #noisy_wavs, self.lens = self.hparams.wav_augment(
+        #    self.clean_wavs, self.lens
+        #)
+        noisy_wavs=batch.noisy_wav
         noisy_feats = self.compute_feats(noisy_wavs)
         print("NoisyFeat Size:")
         print(noisy_feats.size())
@@ -82,7 +82,7 @@ class SEBrain(sb.Brain):
 
         noisy_feats_coordinates=torch.cat((noisy_feats,coordinates),2).to(device)
         print("Coordinated Feats Size")
-        print(noisy_feats.size())
+        print(noisy_feats_coordinates.size())
         # Masking is done here with the "signal approximation (SA)" algorithm.
         # The masked input is compared directly with clean speech targets.
         
@@ -98,9 +98,11 @@ class SEBrain(sb.Brain):
         #print(noisy_feats)
         #print("Mask Time:")
         #print(mask.size())
-        
+        print("Mask Size")
+        print(mask.size())
         predict_spec = torch.mul(mask, noisy_feats)
-        
+        print("Predict Spec Size")
+        print(predict_spec.size())
         #predict_spec=torch.mul(mask,noisy_feats)
         # Also return predicted wav, for evaluation. Note that this could
         # also be used for a time-domain loss term.
@@ -115,7 +117,9 @@ class SEBrain(sb.Brain):
         predict_wav = self.hparams.resynth(
             torch.expm1(predict_spec), noisy_wavs
         )
-        
+        print("Predict_Wav")
+        print(predict_wav)
+        exit()
         #predict_wav=0
 
         # Return a dictionary so we don't have to remember the order
@@ -317,8 +321,8 @@ def dataio_prep(hparams):
     }
     hparams["dataloader_options"]["shuffle"] = False
     for dataset in data_info:
-        print("LetsGOOOO")
-        print(data_info[dataset])
+        #print("LetsGOOOO")
+        #print(data_info[dataset])
         datasets[dataset] = sb.dataio.dataset.DynamicItemDataset.from_json(
             json_path=data_info[dataset],
             replacements={"data_root": hparams["data_folder"]},
@@ -381,7 +385,7 @@ if __name__ == "__main__":
     # stopped at any point, and will be resumed on next call.
     print(hparams["model"])
     #print(hparams["skip_prep"])
-    print(datasets["valid"][0])
+    #print(datasets["valid"][0])
     
     #exit()
     se_brain.fit(
