@@ -23,7 +23,7 @@ import torch
 import speechbrain as sb
 from hyperpyyaml import load_hyperpyyaml
 from mini_librispeech_prepare import prepare_mini_librispeech
-torch.set_printoptions(profile="default")
+
 
 # Brain class for speech enhancement training
 class SEBrain(sb.Brain):
@@ -47,17 +47,17 @@ class SEBrain(sb.Brain):
 
         # We first move the batch to the appropriate device, and
         # compute the features necessary for masking.
-        print("Batchbatchbatcb-------------------------")
-        print(batch.coordinates)
+        #print("Batchbatchbatcb-------------------------")
+        #print(batch.coordinates)
         
         batch = batch.to(self.device)
         self.clean_wavs, self.lens = batch.clean_sig
-        print("Clean_WAVS--")
-        print(self.clean_wavs)
-        print("Noisy Wavs--")
-        print(batch.noisy_sig)
-        print("Lens--")
-        print(self.lens)
+        #print("Clean_WAVS--")
+        #print(self.clean_wavs)
+        #print("Noisy Wavs--")
+        #print(batch.noisy_sig)
+        #print("Lens--")
+        #print(self.lens)
         
         #noisy_wavs=batch.noisy_sig
         #print("Noisy PREEE")
@@ -66,29 +66,29 @@ class SEBrain(sb.Brain):
         noisy_wavs, self.lens = self.hparams.wav_augment(
             self.clean_wavs, self.lens
         )
-        print("Noisy Post")
-        print(noisy_wavs.size())
+        #print("Noisy Post")
+        #print(noisy_wavs.size())
         
         noisy_feats = self.compute_feats(noisy_wavs)
-        print("NoisyFeat Size:")
-        print(noisy_feats.size())
+        #print("NoisyFeat Size:")
+        #print(noisy_feats.size())
         
         #Appending Coordinates
         coordinates=torch.tensor(batch.coordinates).to(device)
-        print("coordinates size:")
-        print(coordinates.size())
+        #print("coordinates size:")
+        #print(coordinates.size())
         
         coordinates=coordinates.unsqueeze(1)
-        print("coordinates Unsqueezed size:")
-        print(coordinates.size())
+        #print("coordinates Unsqueezed size:")
+        #print(coordinates.size())
         
         coordinates=coordinates.repeat(1,noisy_feats.size(dim=1),1)
-        print("Repeated Tensor size:")
-        print(coordinates.size())
+        #print("Repeated Tensor size:")
+        #print(coordinates.size())
 
         noisy_feats_coordinates=torch.cat((noisy_feats,coordinates),2).to(device)
-        print("Coordinated Feats Size")
-        print(noisy_feats_coordinates.size())
+        #print("Coordinated Feats Size")
+        #print(noisy_feats_coordinates.size())
         # Masking is done here with the "signal approximation (SA)" algorithm.
         # The masked input is compared directly with clean speech targets.
         
@@ -104,11 +104,11 @@ class SEBrain(sb.Brain):
         #print(noisy_feats)
         #print("Mask Time:")
         #print(mask.size())
-        print("Mask Size")
-        print(mask.size())
+        #print("Mask Size")
+        #print(mask.size())
         predict_spec = torch.mul(mask, noisy_feats)
-        print("Predict Spec Size")
-        print(predict_spec.size())
+        #print("Predict Spec Size")
+        #print(predict_spec.size())
         #predict_spec=torch.mul(mask,noisy_feats)
         # Also return predicted wav, for evaluation. Note that this could
         # also be used for a time-domain loss term.
@@ -123,8 +123,8 @@ class SEBrain(sb.Brain):
         predict_wav = self.hparams.resynth(
             torch.expm1(predict_spec), noisy_wavs
         )
-        print("Predict_Wav")
-        print(predict_wav)
+        #print("Predict_Wav")
+        #print(predict_wav)
         exit()
         #predict_wav=0
 
