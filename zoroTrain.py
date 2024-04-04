@@ -394,22 +394,22 @@ if __name__ == "__main__":
     #print(datasets["valid"][0])
     
     #exit()
-    se_brain.fit(
-        epoch_counter=se_brain.hparams.epoch_counter,
-        train_set=datasets["train"],
-        valid_set=datasets["valid"],
-        train_loader_kwargs=hparams["dataloader_options"],
-        valid_loader_kwargs=hparams["dataloader_options"],
-    )
+    #se_brain.fit(
+    #    epoch_counter=se_brain.hparams.epoch_counter,
+    #    train_set=datasets["train"],
+    #    valid_set=datasets["valid"],
+    #    train_loader_kwargs=hparams["dataloader_options"],
+    #    valid_loader_kwargs=hparams["dataloader_options"],
+    #)
 
     # Load best checkpoint (highest STOI) for evaluation
-    #test_stats = se_brain.evaluate(
-    #    test_set=datasets["test"],
-    #    max_key="stoi",
-    #    test_loader_kwargs=hparams["dataloader_options"],
-    #)
-    #print("test_stats")
-    #print(test_stats)
+    test_stats = se_brain.evaluate(
+        test_set=datasets["test"],
+        max_key="stoi",
+        test_loader_kwargs=hparams["dataloader_options"],
+    )
+    print("test_stats")
+    print(test_stats)
     
     #speechbrain.inference.enhancement
 
