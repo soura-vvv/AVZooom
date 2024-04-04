@@ -381,6 +381,7 @@ if __name__ == "__main__":
     print(hparams["model"])
     #print(hparams["skip_prep"])
     print(datasets["train"][0])
+    exit()
     se_brain.fit(
         epoch_counter=se_brain.hparams.epoch_counter,
         train_set=datasets["train"],
