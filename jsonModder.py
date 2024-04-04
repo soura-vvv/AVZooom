@@ -1,15 +1,72 @@
 import json
+import re
+# Load the original JSON data
+with open("zorozoroTrain.json", "r") as file:
+    original_data = json.load(file)
 
-# Load the JSON data from the file
-with open('zoroValid.json', 'r') as f:
-    data = json.load(f)
+# Iterate over each key-value pair
+for key, value in original_data.items():
+    # Extract the three numbers after "{data_folder}/"
+    print(value["noisy_wav"])
+    numbers_string = value["noisy_wav"].split("{data_root}/")[1].split("/Unzoomed/")[0]
 
-# Iterate through each key-value pair in the JSON data
-for key, value in data.items():
-    # Copy the value of the "wav" key to create "noisy_wav"
-    value['noisy_wav'] = value['wav']
+    # Split the string by "_" and convert each part to a float
+    
+    numbers = [float(num) for num in numbers_string.split("_")]
 
-# Write the updated JSON data back to the file
-with open('zoroValid.json', 'w') as f:
-    json.dump(data, f, indent=4)
+    #print(numbers[1]/2)
+    #exit()
+    b = numbers[1]/2
+    print("b")
+    print(b)
+    a = numbers[0]
+    print(a)
+    print("a")
+    b = int(b) if b.is_integer() else b
+    a = int(a) if a.is_integer() else a
+    print("b")
+    print(b)
+    print("a")
+    print(a)
+    # Split the string by "Unzoomed/" to get the part after it
+    parts = value["noisy_wav"].split("Unzoomed/")
+    #print(parts)
+    # Split the part after "Unzoomed/" by "_" to get the floats and the rest of the string
+    old_a, rest = parts[1].split("_", 1)
+    old_b,rest =rest.split("_", 1)
+    #print(old_a)
+    #print(old_b)
+    #print(rest)
+    print("PARTSS")
+    print(parts[0])
+    new_part = f"{a}_{b}_" + rest
+    modified_noisy_wav = parts[0] + "Unzoomed/" + new_part
+    original_data[key]["noisy_wav"] = modified_noisy_wav
+    #print(original_data[key])
+    
 
+    #numbers = value["noisy_wav"].split("{data_root}/")[1].split("Unzoomed/")[1].split("_")[0:3]
+    #numbers[2] = numbers[2][:len(numbers[2])-4]
+    #print(numbers)
+    #a, b, c = map(float, numbers)
+    #print(a)
+    #print(b)
+    #print(c)
+    # Modify the corresponding three numbers from the "Unzoomed" path
+    #unzoomed_numbers = value["noisy_wav"].split("Unzoomed/")[1].split("_")[0:3]
+    #print(unzoomed_numbers)
+    #new_b, new_c = map(float, unzoomed_numbers[1:3])
+    #new_b /= 2
+    #new_c = 1.7
+
+    # Construct the new "noisy_wav" value
+    #new_noisy_wav = value["noisy_wav"].replace(f"{b}_{c}", f"{new_b}_{new_c}")
+
+    # Update the value for "noisy_wav"
+    #original_data[key]["noisy_wav"] = new_noisy_wav
+
+# Write the modified data back to the JSON file
+with open("zorozoroTrain.json", "w") as file:
+    json.dump(original_data, file, indent=4)
+
+#print(json.dumps(original_data, indent=4))
