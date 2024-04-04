@@ -59,10 +59,16 @@ class SEBrain(sb.Brain):
         print("Lens--")
         print(self.lens)
         
+        noisy_wavs=batch.noisy_sig
+        print("Noisy PREEE")
+        print(noisy_wavs.size())
+        
         noisy_wavs, self.lens = self.hparams.wav_augment(
             self.clean_wavs, self.lens
         )
-        #noisy_wavs=batch.noisy_sig
+        print("Noisy Post")
+        print(noisy_wavs.size())
+        
         noisy_feats = self.compute_feats(noisy_wavs)
         print("NoisyFeat Size:")
         print(noisy_feats.size())
