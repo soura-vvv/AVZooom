@@ -125,7 +125,7 @@ class SEBrain(sb.Brain):
         )
         #print("Predict_Wav")
         #print(predict_wav)
-        exit()
+        
         #predict_wav=0
 
         # Return a dictionary so we don't have to remember the order
