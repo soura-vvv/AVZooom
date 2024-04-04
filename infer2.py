@@ -262,7 +262,7 @@ def dataio_prep(hparams):
     data_info = {
         "train":hparams["zoroTrain_annotation"],
         "valid":hparams["zoroValid_annotation"],
-        "test":hparams["zoroTest_annotation"]
+        "test":hparams["zoroTest_annotation"],
         "infer":hparams["infer_annotation"]
     }
     hparams["dataloader_options"]["shuffle"] = False
