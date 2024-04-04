@@ -260,9 +260,9 @@ def dataio_prep(hparams):
     # Define datasets sorted by ascending lengths for efficiency
     datasets = {}
     data_info = {
-        "train":hparams["zoroTrain_annotation"],
-        "valid":hparams["zoroValid_annotation"],
-        "test":hparams["zoroTest_annotation"],
+        "train":hparams["train_annotation"],
+        "valid":hparams["valid_annotation"],
+        "test":hparams["test_annotation"],
         "infer":hparams["infer_annotation"]
     }
     hparams["dataloader_options"]["shuffle"] = False
