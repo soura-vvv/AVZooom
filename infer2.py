@@ -343,8 +343,8 @@ if __name__ == "__main__":
     #print(*out,sep="\n")
     #print(len(out[0]['wav'][0]))
     wavzout=np.array(out[0]['wav'][0])
-    wavzout=wavzout.cpu().numpy()
-    write("inferenceOut1.wav", hparams["sample_rate"], data.astype(np.int16))
+    samples=wavzout.cpu().numpy()
+    write("inferenceOut1.wav", hparams["sample_rate"], samples.astype(np.int16))
     #write_out_audio(out[0]['wav'][0])
     
     #/home/sxp3410/Masters/speechbrain/templates/enhancement/AVZooom
