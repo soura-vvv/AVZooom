@@ -112,7 +112,8 @@ wav_augment: !new:speechbrain.augment.augmenter.Augmenter
     min_augmentations: 1
     max_augmentations: 1
     augment_prob: 1.0
-    augmentations: [!ref <add_noise>]
+    #augmentations: [!ref <add_noise>]
+    augmentations: []
 
 # To design a custom model, either just edit the simple CustomModel
 # class that's listed here, or replace this `!new` call with a line
