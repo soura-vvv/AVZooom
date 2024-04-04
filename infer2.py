@@ -279,7 +279,7 @@ def write_out_audio(audio_wavs):
     sample_rate=hparams["sample_rate"]
     samples=audio_wavs.cpu().numpy()
     
-    wavf.write("TestInference2.wav",sample_rate,samples)
+    wavf.write("TestInference(0.3_0.5).wav",sample_rate,samples)
     
     
         
