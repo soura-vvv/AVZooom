@@ -263,6 +263,7 @@ def dataio_prep(hparams):
         "train":hparams["zoroTrain_annotation"],
         "valid":hparams["zoroValid_annotation"],
         "test":hparams["zoroTest_annotation"]
+        "infer":hparams["infer_annotation"]
     }
     hparams["dataloader_options"]["shuffle"] = False
     for dataset in data_info:
@@ -333,7 +334,7 @@ if __name__ == "__main__":
     print(hparams["model"])
     print(datasets["train"])
     out = se_brain.infer2(
-        test_set=datasets["test"],
+        test_set=datasets["infer"],
         max_key="stoi",
         test_loader_kwargs=hparams["dataloader_options"],
     )

@@ -390,8 +390,8 @@ if __name__ == "__main__":
     # with changing state are managed by the Checkpointer, training can be
     # stopped at any point, and will be resumed on next call.
     print(hparams["model"])
-    for test_sets in datasets["test"]:
-        print(test_sets)
+    #for test_sets in datasets["test"]:
+    #    print(test_sets)
     #print(hparams["skip_prep"])
     #print(datasets["valid"][0])
     
