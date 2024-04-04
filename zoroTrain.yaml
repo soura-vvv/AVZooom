@@ -28,9 +28,9 @@ train_log: !ref <output_folder>/train_log.txt
 
 # Path where data manifest files will be stored
 # The data manifest files are created by the data preparation script.
-train_annotation: zoroTrain.json
-valid_annotation: zoroValid.json
-test_annotation: zoroTest.json
+train_annotation: zorozoroTrain.json
+valid_annotation: zorozoroValid.json
+test_annotation: zorozoroTest.json
 #zoroTrain_annotation: zoroTrain.json
 #zoroValid_annotation: zoroValid.json
 #zoroTest_annotation: zoroTest.json
