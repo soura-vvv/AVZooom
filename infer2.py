@@ -27,7 +27,7 @@ from mini_librispeech_prepare import prepare_mini_librispeech
 import inspect
 from tqdm import tqdm
 import numpy as np
-import scipy.io.wavfile as wavf
+import scipy.io.wavfile as write
 
 
 # Brain class for speech enhancement training
@@ -342,7 +342,8 @@ if __name__ == "__main__":
     print(hparams["train_annotation"])
     #print(*out,sep="\n")
     #print(len(out[0]['wav'][0]))
-    print(out[0]['wav'][0])
+    wavzout=np.array(out[0]['wav'][0])
+    write("inferenceOut1.wav", hparams["sample_rate"], data.astype(np.int16))
     #write_out_audio(out[0]['wav'][0])
     
     #/home/sxp3410/Masters/speechbrain/templates/enhancement/AVZooom
