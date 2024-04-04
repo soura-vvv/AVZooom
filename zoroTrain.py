@@ -23,7 +23,7 @@ import torch
 import speechbrain as sb
 from hyperpyyaml import load_hyperpyyaml
 from mini_librispeech_prepare import prepare_mini_librispeech
-torch.set_printoptions(profile="full")
+torch.set_printoptions(profile="default")
 
 # Brain class for speech enhancement training
 class SEBrain(sb.Brain):
