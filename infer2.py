@@ -277,10 +277,12 @@ def dataio_prep(hparams):
 
 def write_out_audio(audio_wavs):
     sample_rate=hparams["sample_rate"]
-    samples=audio_wavs.cpu().numpy()
+    samples=audio_wavs[0].cpu().numpy()
     
-    wavf.write("NoisyTestInference(0.3_0.5).wav",sample_rate,samples)
+    wavf.write("NoisyTestInference0.wav",sample_rate,samples)
+    samples=audio_wavs[1].cpu().numpy()
     
+    wavf.write("NoisyTestInference1.wav",sample_rate,samples)
     
         
 
@@ -346,6 +348,6 @@ if __name__ == "__main__":
     #samples=wavzout.cpu().numpy()
     #write("inferenceOut1.wav", hparams["sample_rate"], samples.astype(np.int16))
     print(out[0]['wav'].size())
-    write_out_audio(out[0]['wav'][0])
+    write_out_audio(out[0]['wav'])
     
     #/home/sxp3410/Masters/speechbrain/templates/enhancement/AVZooom
