@@ -277,17 +277,20 @@ def dataio_prep(hparams):
 
 def write_out_audio(audio_wavs):
     sample_rate=hparams["sample_rate"]
-    samples=audio_wavs[0].cpu().numpy()
+    #samples=audio_wavs[0].cpu().numpy()
     
-    wavf.write("NoisyTestInference0.wav",sample_rate,samples)
-    samples=audio_wavs[1].cpu().numpy()
+    #wavf.write("outputs/NoisyTestInference0.wav",sample_rate,samples)
+    #samples=audio_wavs[1].cpu().numpy()
     
-    wavf.write("NoisyTestInference1.wav",sample_rate,samples)
-    samples=audio_wavs[2].cpu().numpy()
+    #wavf.write("outputs/NoisyTestInference1.wav",sample_rate,samples)
+    #samples=audio_wavs[2].cpu().numpy()
     
-    wavf.write("NoisyTestInference2.wav",sample_rate,samples)
-    
-        
+    #wavf.write("outputs/NoisyTestInference2.wav",sample_rate,samples)
+    i=0
+    for audios in audio_wavs:
+        fileName="outputs/"+"TestInference"+str(i)+".wav"
+        wavf.write(fileName,sample_rate,audios)
+        i+=1
 
 # Recipe begins!
 if __name__ == "__main__":

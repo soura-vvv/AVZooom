@@ -1,28 +1,73 @@
 {    "15_15_5_2/10.91_12.5_1.7": {
-    "wav": "{data_root}/NoisyUnzoomedTest.wav",
-    "length": 6.2336,
+    "wav": "{data_root}/11_6.5_1.7 copy.wav",
+    "length": 5.7094,
     "coordinates": [
         0.91,
         0.5
     ],
-    "noisy_wav": "{data_root}/NoisyUnzoomedTest.wav"
+    "noisy_wav": "{data_root}/11_6.5_1.7 copy.wav"
     },
     "15_15_5_2/10.91_12.5_1.0": {
-        "wav": "{data_root}/NoisyUnzoomedTest.wav",
-        "length": 6.2336,
+        "wav": "{data_root}/11_6.5_1.7.wav",
+        "length": 4.0384,
         "coordinates": [
             0.91,
             0.83
         ],
-        "noisy_wav": "{data_root}/NoisyUnzoomedTest.wav"
+        "noisy_wav": "{data_root}/11_6.5_1.7.wav"
         },
-    "15_15_5_2/10.91_12.5_1.9": {
-        "wav": "{data_root}/NoisyUnzoomedTest.wav",
-        "length": 6.2336,
+    "15_15_5_2/10.91_12.5_1.95": {
+        "wav": "{data_root}/11_7.5_1.7.wav",
+        "length": 6.7031,
         "coordinates": [
-            0.27,
-            5
+            0.9,
+            0.5
         ],
-        "noisy_wav": "{data_root}/NoisyUnzoomedTest.wav"
+        "noisy_wav": "{data_root}/11_7.5_1.7.wav"
+        },
+    "15_15_5_2/10.91_12.5_1.94": {
+        "wav": "{data_root}/13_2.5_1.7.wav",
+        "length": 4.0491,
+        "coordinates": [
+            0.9,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_2.5_1.7.wav"
+        },
+    "15_15_5_2/10.91_12.5_1.93": {
+        "wav": "{data_root}/13_3.5_1.7.wav",
+        "length": 6.7519,
+        "coordinates": [
+            0.9,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_3.5_1.7.wav"
+        },
+    "15_15_5_2/10.91_12.5_1.92": {
+        "wav": "{data_root}/13_5.5_1.7.wav",
+        "length": 4.4714,
+        "coordinates": [
+            0.9,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_5.5_1.7.wav"
+        },
+    "15_15_5_2/10.91_12.5_1.91": {
+        "wav": "{data_root}/13_6.5_1.7.wav",
+        "length": 4.3535,
+        "coordinates": [
+            0.9,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_6.5_1.7.wav"
+        },
+    "15_15_5_2/10.91_12.5_1": {
+        "wav": "{data_root}/13_7.5_1.7.wav",
+        "length": 4.5634,
+        "coordinates": [
+            0.9,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_7.5_1.7.wav"
         }
     }
