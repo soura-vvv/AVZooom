@@ -2,8 +2,8 @@
     "wav": "{data_root}/NoisyUnzoomedTest.wav",
     "length": 6.2336,
     "coordinates": [
-        0.0,
-        0.0
+        0.91,
+        0.5
     ],
     "noisy_wav": "{data_root}/NoisyUnzoomedTest.wav"
     },
@@ -11,8 +11,17 @@
         "wav": "{data_root}/NoisyUnzoomedTest.wav",
         "length": 6.2336,
         "coordinates": [
-            1.0,
-            1.0
+            0.91,
+            0.83
+        ],
+        "noisy_wav": "{data_root}/NoisyUnzoomedTest.wav"
+        },
+    "15_15_5_2/10.91_12.5_1.9": {
+        "wav": "{data_root}/NoisyUnzoomedTest.wav",
+        "length": 6.2336,
+        "coordinates": [
+            0.27,
+            5
         ],
         "noisy_wav": "{data_root}/NoisyUnzoomedTest.wav"
         }

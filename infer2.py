@@ -283,6 +283,9 @@ def write_out_audio(audio_wavs):
     samples=audio_wavs[1].cpu().numpy()
     
     wavf.write("NoisyTestInference1.wav",sample_rate,samples)
+    samples=audio_wavs[2].cpu().numpy()
+    
+    wavf.write("NoisyTestInference2.wav",sample_rate,samples)
     
         
 
