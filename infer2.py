@@ -338,7 +338,8 @@ if __name__ == "__main__":
         run_opts=run_opts,
         checkpointer=hparams["checkpointer"],
     )
-
+    for sets in datasets["infer"]:
+        print(sets)
     print(hparams["model"])
     print(datasets["train"])
     out = se_brain.infer2(
