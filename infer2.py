@@ -289,7 +289,7 @@ def write_out_audio(audio_wavs):
     i=0
     for audios in audio_wavs:
         fileName="outputs/"+"TestInference"+str(i)+".wav"
-        wavf.write(fileName,sample_rate,audios)
+        wavf.write(fileName,sample_rate,audios.cps().numpy())
         i+=1
 
 # Recipe begins!
