@@ -288,7 +288,7 @@ def write_out_audio(audio_wavs):
     #wavf.write("outputs/NoisyTestInference2.wav",sample_rate,samples)
     i=0
     for audios in audio_wavs:
-        fileName="outputs/"+"TestInference"+str(i)+".wav"
+        fileName="outputs9.90dB/"+"TestInference"+str(i)+".wav"
         wavf.write(fileName,sample_rate,audios.cpu().numpy())
         i+=1
 
@@ -359,7 +359,8 @@ if __name__ == "__main__":
     
     for outputs in out:
         print(outputs['wav'].size())
+        write_out_audio(outputs['wav'])
     
-    #write_out_audio(out[0]['wav'])
+    #
     
     #/home/sxp3410/Masters/speechbrain/templates/enhancement/AVZooom

@@ -1,4 +1,45 @@
+import os
 import json
+import soundfile as sf
+
+# Specify the directory containing the WAV files
+folder_path = '9.90dBUnzoomed'
+
+# Initialize an empty dictionary to store the JSON data
+json_data = {}
+
+# Iterate through each file in the folder
+for file_name in os.listdir(folder_path):
+    # Check if the file is a WAV file
+    if file_name.endswith('.wav'):
+        # Construct the full file path
+        file_path = os.path.join(folder_path, file_name)
+        
+        # Get the length of the audio file
+        audio_data, sample_rate = sf.read(file_path)
+        audio_length = len(audio_data) / sample_rate
+        
+        # Construct the WAV and noisy WAV paths
+        wav_path = f"{{data_root}}/{file_name}"
+        noisy_wav_path = f"{{data_root}}/{file_name}"
+        
+        # Add the entry to the JSON data
+        json_data[file_name] = {
+            "wav": wav_path,
+            "length": audio_length,
+            "coordinates": [0.5, 0.5],
+            "noisy_wav": noisy_wav_path
+        }
+
+# Write the JSON data to a file
+with open("zorozoroInfer.json", "w") as json_file:
+    json.dump(json_data, json_file, indent=4)
+
+
+
+
+
+'''import json
 import re
 # Load the original JSON data
 with open("zorozoroTrain.json", "r") as file:
@@ -69,4 +110,4 @@ for key, value in original_data.items():
 with open("zorozoroTrain.json", "w") as file:
     json.dump(original_data, file, indent=4)
 
-#print(json.dumps(original_data, indent=4))
+#print(json.dumps(original_data, indent=4))'''
