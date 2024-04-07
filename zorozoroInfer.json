@@ -69,5 +69,23 @@
             0.5
         ],
         "noisy_wav": "{data_root}/13_7.5_1.7.wav"
+        },
+    "15_15_5_2/10.91_12.5_1": {
+        "wav": "{data_root}/13_7.5_1.7.wav",
+        "length": 4.5634,
+        "coordinates": [
+            0.9,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_7.5_1.7.wav"
+        },
+    "15_15_5_2/10.91_12.5_1": {
+        "wav": "{data_root}/13_7.5_1.7.wav",
+        "length": 4.5634,
+        "coordinates": [
+            0.9,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_7.5_1.7.wav"
         }
     }
