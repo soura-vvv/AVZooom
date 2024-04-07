@@ -342,14 +342,14 @@ if __name__ == "__main__":
     for sets in datasets["infer"]:
         print(sets)
     print(hparams["model"])
-    print(datasets["train"])
+    #print(datasets["train"])
     out = se_brain.infer2(
         test_set=datasets["infer"],
         max_key="stoi",
         test_loader_kwargs=hparams["dataloader_options"],
     )
     print("=============================================================================")
-    print(hparams["train_annotation"])
+    #print(hparams["train_annotation"])
     #print(*out,sep="\n")
     #print(len(out[0]['wav'][0]))
     #wavzout=out[0]['wav'][0]
