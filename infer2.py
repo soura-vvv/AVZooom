@@ -355,7 +355,7 @@ if __name__ == "__main__":
     #samples=wavzout.cpu().numpy()
     #write("inferenceOut1.wav", hparams["sample_rate"], samples.astype(np.int16))
     print(out)
-    print(len(out))
+    print(len(out[0]))
     print(out[0]['wav'].size())
     #write_out_audio(out[0]['wav'])
     
