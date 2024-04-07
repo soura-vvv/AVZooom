@@ -3,7 +3,7 @@ import json
 import soundfile as sf
 
 # Specify the directory containing the WAV files
-folder_path = '11.99dBUnzoomed'
+folder_path = '12.42dBUnzoomed'
 
 # Initialize an empty dictionary to store the JSON data
 json_data = {}
