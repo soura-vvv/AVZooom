@@ -357,6 +357,8 @@ if __name__ == "__main__":
     print(len(out))
     print(len(out[0]))
     print(out[0]['wav'].size())
+    print(out[1]['wav'].size())
+    
     #write_out_audio(out[0]['wav'])
     
     #/home/sxp3410/Masters/speechbrain/templates/enhancement/AVZooom
