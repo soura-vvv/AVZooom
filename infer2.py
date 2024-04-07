@@ -267,6 +267,7 @@ def dataio_prep(hparams):
     }
     hparams["dataloader_options"]["shuffle"] = False
     for dataset in data_info:
+        print("YAY")
         datasets[dataset] = sb.dataio.dataset.DynamicItemDataset.from_json(
             json_path=data_info[dataset],
             replacements={"data_root": hparams["data_folder"]},
