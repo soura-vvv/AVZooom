@@ -276,7 +276,7 @@ def dataio_prep(hparams):
         ).filtered_sorted(sort_key="length")
     return datasets
 
-def write_out_audio(audio_wavs):
+def write_out_audio(audio_wavs,idx):
     sample_rate=hparams["sample_rate"]
     #samples=audio_wavs[0].cpu().numpy()
     
@@ -289,7 +289,7 @@ def write_out_audio(audio_wavs):
     #wavf.write("outputs/NoisyTestInference2.wav",sample_rate,samples)
     i=0
     for audios in audio_wavs:
-        fileName="10.13dBZoomed/"+"TestInference"+str(i)+".wav"
+        fileName="10.13dBZoomed/"+"TestInference"+str(i+idx)+".wav"
         wavf.write(fileName,sample_rate,audios.cpu().numpy())
         i+=1
 
@@ -357,10 +357,11 @@ if __name__ == "__main__":
     #write("inferenceOut1.wav", hparams["sample_rate"], samples.astype(np.int16))
     print(len(out))
     print(len(out[0]))
-    
+    i=0
     for outputs in out:
         print(outputs['wav'].size())
-        write_out_audio(outputs['wav'])
+        write_out_audio(outputs['wav'],i)
+        i+=1
     
     #
     
