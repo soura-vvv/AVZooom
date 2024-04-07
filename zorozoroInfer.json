@@ -1,353 +1,362 @@
 {
-    "3.109612.42snr.wav": {
-        "wav": "{data_root}/3.109612.42snr.wav",
-        "length": 3.109625,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/3.109612.42snr.wav"
-    },
-    "4.038412.42snr.wav": {
-        "wav": "{data_root}/4.038412.42snr.wav",
-        "length": 4.038375,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/4.038412.42snr.wav"
-    },
-    "4.513312.42snr.wav": {
-        "wav": "{data_root}/4.513312.42snr.wav",
-        "length": 4.51325,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/4.513312.42snr.wav"
-    },
-    "3.430412.42snr.wav": {
-        "wav": "{data_root}/3.430412.42snr.wav",
-        "length": 3.430375,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/3.430412.42snr.wav"
-    },
-    "4.193112.42snr.wav": {
-        "wav": "{data_root}/4.193112.42snr.wav",
-        "length": 4.193125,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/4.193112.42snr.wav"
-    },
-    "4.379212.42snr.wav": {
-        "wav": "{data_root}/4.379212.42snr.wav",
+    "5_4.5_1.7 copy.wav": {
+        "wav": "{data_root}/5_4.5_1.7 copy.wav",
         "length": 4.37925,
         "coordinates": [
             0.5,
             0.5
         ],
-        "noisy_wav": "{data_root}/4.379212.42snr.wav"
+        "noisy_wav": "{data_root}/5_4.5_1.7 copy.wav"
     },
-    "4.049112.42snr.wav": {
-        "wav": "{data_root}/4.049112.42snr.wav",
+    "13_2.5_1.7.wav": {
+        "wav": "{data_root}/13_2.5_1.7.wav",
         "length": 4.049125,
         "coordinates": [
             0.5,
             0.5
         ],
-        "noisy_wav": "{data_root}/4.049112.42snr.wav"
+        "noisy_wav": "{data_root}/13_2.5_1.7.wav"
     },
-    "4.681112.42snr.wav": {
-        "wav": "{data_root}/4.681112.42snr.wav",
-        "length": 4.681125,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/4.681112.42snr.wav"
-    },
-    "4.849812.42snr.wav": {
-        "wav": "{data_root}/4.849812.42snr.wav",
-        "length": 4.84975,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/4.849812.42snr.wav"
-    },
-    "4.735812.42snr.wav": {
-        "wav": "{data_root}/4.735812.42snr.wav",
-        "length": 4.73575,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/4.735812.42snr.wav"
-    },
-    "5.430612.42snr.wav": {
-        "wav": "{data_root}/5.430612.42snr.wav",
-        "length": 5.430625,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/5.430612.42snr.wav"
-    },
-    "5.709412.42snr.wav": {
-        "wav": "{data_root}/5.709412.42snr.wav",
-        "length": 5.709375,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/5.709412.42snr.wav"
-    },
-    "4.691512.42snr.wav": {
-        "wav": "{data_root}/4.691512.42snr.wav",
-        "length": 4.6915,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/4.691512.42snr.wav"
-    },
-    "5.809412.42snr.wav": {
-        "wav": "{data_root}/5.809412.42snr.wav",
+    "15_3.5_1.7.wav": {
+        "wav": "{data_root}/15_3.5_1.7.wav",
         "length": 5.809375,
         "coordinates": [
             0.5,
             0.5
         ],
-        "noisy_wav": "{data_root}/5.809412.42snr.wav"
+        "noisy_wav": "{data_root}/15_3.5_1.7.wav"
     },
-    "4.865612.42snr.wav": {
-        "wav": "{data_root}/4.865612.42snr.wav",
-        "length": 4.865625,
+    "9_7.5_1.7.wav": {
+        "wav": "{data_root}/9_7.5_1.7.wav",
+        "length": 4.193125,
         "coordinates": [
             0.5,
             0.5
         ],
-        "noisy_wav": "{data_root}/4.865612.42snr.wav"
+        "noisy_wav": "{data_root}/9_7.5_1.7.wav"
     },
-    "5.516812.42snr.wav": {
-        "wav": "{data_root}/5.516812.42snr.wav",
-        "length": 5.51675,
+    "7_2.5_1.7.wav": {
+        "wav": "{data_root}/7_2.5_1.7.wav",
+        "length": 5.430625,
         "coordinates": [
             0.5,
             0.5
         ],
-        "noisy_wav": "{data_root}/5.516812.42snr.wav"
+        "noisy_wav": "{data_root}/7_2.5_1.7.wav"
     },
-    "5.018312.42snr.wav": {
-        "wav": "{data_root}/5.018312.42snr.wav",
-        "length": 5.01825,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/5.018312.42snr.wav"
-    },
-    "5.303412.42snr.wav": {
-        "wav": "{data_root}/5.303412.42snr.wav",
-        "length": 5.303375,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/5.303412.42snr.wav"
-    },
-    "3.852112.42snr.wav": {
-        "wav": "{data_root}/3.852112.42snr.wav",
-        "length": 3.852125,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/3.852112.42snr.wav"
-    },
-    "5.183612.42snr.wav": {
-        "wav": "{data_root}/5.183612.42snr.wav",
-        "length": 5.183625,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/5.183612.42snr.wav"
-    },
-    "5.69112.42snr.wav": {
-        "wav": "{data_root}/5.69112.42snr.wav",
-        "length": 5.691,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/5.69112.42snr.wav"
-    },
-    "3.220912.42snr.wav": {
-        "wav": "{data_root}/3.220912.42snr.wav",
-        "length": 3.220875,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/3.220912.42snr.wav"
-    },
-    "4.353512.42snr.wav": {
-        "wav": "{data_root}/4.353512.42snr.wav",
-        "length": 4.3535,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/4.353512.42snr.wav"
-    },
-    "6.751912.42snr.wav": {
-        "wav": "{data_root}/6.751912.42snr.wav",
-        "length": 6.751875,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/6.751912.42snr.wav"
-    },
-    "4.797712.42snr.wav": {
-        "wav": "{data_root}/4.797712.42snr.wav",
-        "length": 4.79775,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/4.797712.42snr.wav"
-    },
-    "5.343312.42snr.wav": {
-        "wav": "{data_root}/5.343312.42snr.wav",
-        "length": 5.34325,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/5.343312.42snr.wav"
-    },
-    "4.681912.42snr.wav": {
-        "wav": "{data_root}/4.681912.42snr.wav",
-        "length": 4.681875,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/4.681912.42snr.wav"
-    },
-    "5.661912.42snr.wav": {
-        "wav": "{data_root}/5.661912.42snr.wav",
-        "length": 5.661875,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/5.661912.42snr.wav"
-    },
-    "6.184612.42snr.wav": {
-        "wav": "{data_root}/6.184612.42snr.wav",
-        "length": 6.184625,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/6.184612.42snr.wav"
-    },
-    "5.322112.42snr.wav": {
-        "wav": "{data_root}/5.322112.42snr.wav",
+    "5_3.5_1.7 copy.wav": {
+        "wav": "{data_root}/5_3.5_1.7 copy.wav",
         "length": 5.322125,
         "coordinates": [
             0.5,
             0.5
         ],
-        "noisy_wav": "{data_root}/5.322112.42snr.wav"
+        "noisy_wav": "{data_root}/5_3.5_1.7 copy.wav"
     },
-    "5.539512.42snr.wav": {
-        "wav": "{data_root}/5.539512.42snr.wav",
-        "length": 5.5395,
+    "15_3.5_1.7 copy.wav": {
+        "wav": "{data_root}/15_3.5_1.7 copy.wav",
+        "length": 4.865625,
         "coordinates": [
             0.5,
             0.5
         ],
-        "noisy_wav": "{data_root}/5.539512.42snr.wav"
+        "noisy_wav": "{data_root}/15_3.5_1.7 copy.wav"
     },
-    "3.545712.42snr.wav": {
-        "wav": "{data_root}/3.545712.42snr.wav",
-        "length": 3.54575,
+    "5_2.5_1.7 copy.wav": {
+        "wav": "{data_root}/5_2.5_1.7 copy.wav",
+        "length": 5.691,
         "coordinates": [
             0.5,
             0.5
         ],
-        "noisy_wav": "{data_root}/3.545712.42snr.wav"
+        "noisy_wav": "{data_root}/5_2.5_1.7 copy.wav"
     },
-    "4.331112.42snr.wav": {
-        "wav": "{data_root}/4.331112.42snr.wav",
-        "length": 4.331125,
+    "15_5.5_1.7.wav": {
+        "wav": "{data_root}/15_5.5_1.7.wav",
+        "length": 5.51675,
         "coordinates": [
             0.5,
             0.5
         ],
-        "noisy_wav": "{data_root}/4.331112.42snr.wav"
+        "noisy_wav": "{data_root}/15_5.5_1.7.wav"
     },
-    "6.703112.42snr.wav": {
-        "wav": "{data_root}/6.703112.42snr.wav",
-        "length": 6.703125,
+    "15_4.5_1.7 copy.wav": {
+        "wav": "{data_root}/15_4.5_1.7 copy.wav",
+        "length": 3.220875,
         "coordinates": [
             0.5,
             0.5
         ],
-        "noisy_wav": "{data_root}/6.703112.42snr.wav"
+        "noisy_wav": "{data_root}/15_4.5_1.7 copy.wav"
     },
-    "4.253812.42snr.wav": {
-        "wav": "{data_root}/4.253812.42snr.wav",
-        "length": 4.25375,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/4.253812.42snr.wav"
-    },
-    "4.563412.42snr.wav": {
-        "wav": "{data_root}/4.563412.42snr.wav",
-        "length": 4.563375,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/4.563412.42snr.wav"
-    },
-    "3.267412.42snr.wav": {
-        "wav": "{data_root}/3.267412.42snr.wav",
-        "length": 3.267375,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/3.267412.42snr.wav"
-    },
-    "4.471412.42snr.wav": {
-        "wav": "{data_root}/4.471412.42snr.wav",
-        "length": 4.471375,
-        "coordinates": [
-            0.5,
-            0.5
-        ],
-        "noisy_wav": "{data_root}/4.471412.42snr.wav"
-    },
-    "4.09412.42snr.wav": {
-        "wav": "{data_root}/4.09412.42snr.wav",
+    "11_5.5_1.7 copy.wav": {
+        "wav": "{data_root}/11_5.5_1.7 copy.wav",
         "length": 4.094,
         "coordinates": [
             0.5,
             0.5
         ],
-        "noisy_wav": "{data_root}/4.09412.42snr.wav"
+        "noisy_wav": "{data_root}/11_5.5_1.7 copy.wav"
+    },
+    "11_7.5_1.7.wav": {
+        "wav": "{data_root}/11_7.5_1.7.wav",
+        "length": 6.703125,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/11_7.5_1.7.wav"
+    },
+    "5_5.5_1.7 copy.wav": {
+        "wav": "{data_root}/5_5.5_1.7 copy.wav",
+        "length": 5.303375,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/5_5.5_1.7 copy.wav"
+    },
+    "11_7.5_1.7 copy.wav": {
+        "wav": "{data_root}/11_7.5_1.7 copy.wav",
+        "length": 4.79775,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/11_7.5_1.7 copy.wav"
+    },
+    "13_3.5_1.7.wav": {
+        "wav": "{data_root}/13_3.5_1.7.wav",
+        "length": 6.751875,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_3.5_1.7.wav"
+    },
+    "7_3.5_1.7.wav": {
+        "wav": "{data_root}/7_3.5_1.7.wav",
+        "length": 3.54575,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/7_3.5_1.7.wav"
+    },
+    "11_6.5_1.7.wav": {
+        "wav": "{data_root}/11_6.5_1.7.wav",
+        "length": 4.038375,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/11_6.5_1.7.wav"
+    },
+    "5_3.5_1.7 copy 2.wav": {
+        "wav": "{data_root}/5_3.5_1.7 copy 2.wav",
+        "length": 5.661875,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/5_3.5_1.7 copy 2.wav"
+    },
+    "15_4.5_1.7.wav": {
+        "wav": "{data_root}/15_4.5_1.7.wav",
+        "length": 5.183625,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/15_4.5_1.7.wav"
+    },
+    "13_5.5_1.7.wav": {
+        "wav": "{data_root}/13_5.5_1.7.wav",
+        "length": 4.471375,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_5.5_1.7.wav"
+    },
+    "5_6.5_1.7 copy.wav": {
+        "wav": "{data_root}/5_6.5_1.7 copy.wav",
+        "length": 4.681875,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/5_6.5_1.7 copy.wav"
+    },
+    "11_6.5_1.7 copy.wav": {
+        "wav": "{data_root}/11_6.5_1.7 copy.wav",
+        "length": 5.709375,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/11_6.5_1.7 copy.wav"
+    },
+    "7_4.5_1.7 copy.wav": {
+        "wav": "{data_root}/7_4.5_1.7 copy.wav",
+        "length": 4.6915,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/7_4.5_1.7 copy.wav"
+    },
+    "13_5.5_1.7 copy.wav": {
+        "wav": "{data_root}/13_5.5_1.7 copy.wav",
+        "length": 4.25375,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_5.5_1.7 copy.wav"
+    },
+    "13_6.5_1.7.wav": {
+        "wav": "{data_root}/13_6.5_1.7.wav",
+        "length": 4.3535,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_6.5_1.7.wav"
+    },
+    "5_5.5_1.7.wav": {
+        "wav": "{data_root}/5_5.5_1.7.wav",
+        "length": 6.184625,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/5_5.5_1.7.wav"
+    },
+    "15_7.5_1.7.wav": {
+        "wav": "{data_root}/15_7.5_1.7.wav",
+        "length": 4.51325,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/15_7.5_1.7.wav"
+    },
+    "9_3.5_1.7.wav": {
+        "wav": "{data_root}/9_3.5_1.7.wav",
+        "length": 3.267375,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/9_3.5_1.7.wav"
+    },
+    "7_2.5_1.7 copy.wav": {
+        "wav": "{data_root}/7_2.5_1.7 copy.wav",
+        "length": 5.34325,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/7_2.5_1.7 copy.wav"
+    },
+    "9_7.5_1.7 copy.wav": {
+        "wav": "{data_root}/9_7.5_1.7 copy.wav",
+        "length": 4.331125,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/9_7.5_1.7 copy.wav"
+    },
+    "13_2.5_1.7 copy.wav": {
+        "wav": "{data_root}/13_2.5_1.7 copy.wav",
+        "length": 4.73575,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_2.5_1.7 copy.wav"
+    },
+    "9_5.5_1.7 copy.wav": {
+        "wav": "{data_root}/9_5.5_1.7 copy.wav",
+        "length": 4.681125,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/9_5.5_1.7 copy.wav"
+    },
+    "9_2.5_1.7 copy.wav": {
+        "wav": "{data_root}/9_2.5_1.7 copy.wav",
+        "length": 5.01825,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/9_2.5_1.7 copy.wav"
+    },
+    "5_2.5_1.7.wav": {
+        "wav": "{data_root}/5_2.5_1.7.wav",
+        "length": 3.430375,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/5_2.5_1.7.wav"
+    },
+    "13_6.5_1.7 copy.wav": {
+        "wav": "{data_root}/13_6.5_1.7 copy.wav",
+        "length": 4.3535,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_6.5_1.7 copy.wav"
+    },
+    "7_6.5_1.7 copy.wav": {
+        "wav": "{data_root}/7_6.5_1.7 copy.wav",
+        "length": 4.84975,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/7_6.5_1.7 copy.wav"
+    },
+    "9_4.5_1.7 copy.wav": {
+        "wav": "{data_root}/9_4.5_1.7 copy.wav",
+        "length": 3.852125,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/9_4.5_1.7 copy.wav"
+    },
+    "5_4.5_1.7.wav": {
+        "wav": "{data_root}/5_4.5_1.7.wav",
+        "length": 3.109625,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/5_4.5_1.7.wav"
+    },
+    "13_7.5_1.7.wav": {
+        "wav": "{data_root}/13_7.5_1.7.wav",
+        "length": 4.563375,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/13_7.5_1.7.wav"
+    },
+    "9_2.5_1.7.wav": {
+        "wav": "{data_root}/9_2.5_1.7.wav",
+        "length": 5.5395,
+        "coordinates": [
+            0.5,
+            0.5
+        ],
+        "noisy_wav": "{data_root}/9_2.5_1.7.wav"
     }
 }
