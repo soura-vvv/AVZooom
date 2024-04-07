@@ -290,7 +290,7 @@ def write_out_audio(audio_wavs,idx):
     i=0
     for audios in audio_wavs:
         print(i+idx)
-        fileName="10.13dBZoomed/"+"TestInference"+str(i+idx)+".wav"
+        fileName="10.13dBZoomed/"+"TestInference"+str(i*idx)+".wav"
         wavf.write(fileName,sample_rate,audios.cpu().numpy())
         i+=1
 
