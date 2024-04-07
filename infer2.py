@@ -287,7 +287,7 @@ def write_out_audio(audio_wavs,idx):
     #samples=audio_wavs[2].cpu().numpy()
     
     #wavf.write("outputs/NoisyTestInference2.wav",sample_rate,samples)
-    i=0
+    i=1
     for audios in audio_wavs:
         print(i+idx)
         fileName="10.13dBZoomed/"+"TestInference"+str(i*idx)+".wav"
