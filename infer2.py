@@ -358,7 +358,7 @@ if __name__ == "__main__":
     print(len(out[0]))
     
     for outputs in out:
-        print(outputs.size())
+        print(outputs['wav'].size())
     
     #write_out_audio(out[0]['wav'])
     
